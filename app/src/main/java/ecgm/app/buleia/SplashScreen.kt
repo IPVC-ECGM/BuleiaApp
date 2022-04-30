@@ -13,15 +13,17 @@ class SplashScreen : AppCompatActivity() {
         setContentView(R.layout.activity_splashscreen)
         //Esconder Barra do menu
         supportActionBar?.hide()
-        @Suppress("DEPRECATION")
+
         //Pegar nas dimensões do ecrâ
         //Criar metricas do ecrâ
-        val dm = DisplayMetrics()
         //buscar medidas do ecrâ utilizado
-        windowManager.defaultDisplay.getMetrics(dm)
+        val displayMetrics: DisplayMetrics = getResources().getDisplayMetrics()
         //Gravar os valores nas constantes da classe constantes
-        Constantes.Screen_Width = dm.widthPixels
-        Constantes.Screen_Height = dm.heightPixels
+        Constantes.Screen_Width = displayMetrics.widthPixels
+        Constantes.Screen_Width  = displayMetrics.heightPixels
+
+
+
 
         Handler().postDelayed({
             val intent = Intent(this@SplashScreen, LoginActivity::class.java)
