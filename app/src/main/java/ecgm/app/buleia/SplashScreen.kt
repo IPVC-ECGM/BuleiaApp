@@ -7,10 +7,10 @@ import android.util.DisplayMetrics
 import androidx.appcompat.app.AppCompatActivity
 
 
-class MainActivity : AppCompatActivity() {
+class SplashScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_splashscreen)
         //Esconder Barra do menu
         supportActionBar?.hide()
 
@@ -24,8 +24,8 @@ class MainActivity : AppCompatActivity() {
         Constantes.Screen_Height = dm.heightPixels
 
         Handler().postDelayed({
-            val intent = Intent(this@MainActivity, HomeActivity::class.java)
+            val intent = Intent(this@SplashScreen, LoginActivity::class.java)
             startActivity(intent)
-        },15000)
+        },0)
     }
 }
