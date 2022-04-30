@@ -13,7 +13,7 @@ class SplashScreen : AppCompatActivity() {
         setContentView(R.layout.activity_splashscreen)
         //Esconder Barra do menu
         supportActionBar?.hide()
-
+        @Suppress("DEPRECATION")
         //Pegar nas dimensões do ecrâ
         //Criar metricas do ecrâ
         val dm = DisplayMetrics()
