@@ -3,4 +3,7 @@
     <string name="app_name">BULEIA</string>
     <string name="login_name">Entrar</string>
     <string name="profile_label">Perfil</string>
+    <string name="password">Palavra Passe</string>
+    <string name="email">E-mail</string>
+    <string name="loginButton">Entrar</string>
 </resources>
