@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">BULEIA</string>
     <string name="login_name">Entrar</string>
+    <string name="profile_label">Perfil</string>
 </resources>
