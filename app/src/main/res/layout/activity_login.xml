@@ -73,6 +73,14 @@
         android:textSize="20dp"
     ></Button>
 
-    text
+    <TextView
+        android:id="@+id/criarconta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/createanaccount"
+        android:textSize="20dp"
+        android:layout_below="@+id/buttonLogin"
+        android:layout_centerInParent="true">
+    </TextView>
 
 </RelativeLayout>

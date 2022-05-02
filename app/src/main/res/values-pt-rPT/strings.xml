@@ -6,4 +6,7 @@
     <string name="password">Palavra Passe</string>
     <string name="email">E-mail</string>
     <string name="loginButton">Entrar</string>
+    <string name="createanaccount">Criar Conta</string>
+    <string name="signup">Registar</string>
+    <string name="repeatpassword">Repetir Palavra Passe</string>
 </resources>
