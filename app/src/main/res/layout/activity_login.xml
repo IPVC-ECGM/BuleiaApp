@@ -21,7 +21,7 @@
 
     <!--Email-->
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/email"
+        android:id="@+id/emailTf"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
@@ -40,7 +40,7 @@
 
     <!--Password-->
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/password"
+        android:id="@+id/passwordTf"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
@@ -48,7 +48,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginRight="30dp"
         android:layout_marginLeft="30dp"
-        android:layout_below="@+id/email">
+        android:layout_below="@+id/emailTf">
 
         <EditText
             android:id="@+id/password_text"
@@ -68,7 +68,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginRight="30dp"
         android:layout_marginLeft="30dp"
-        android:layout_below="@+id/password"
+        android:layout_below="@+id/passwordTf"
         android:textColor="@color/icons"
         android:textSize="20dp"
     ></Button>
@@ -77,10 +77,9 @@
         android:id="@+id/criarconta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/createanaccount"
-        android:textSize="20dp"
         android:layout_below="@+id/buttonLogin"
-        android:layout_centerInParent="true">
-    </TextView>
+        android:layout_centerInParent="true"
+        android:text="@string/createanaccount"
+        android:textSize="20dp"></TextView>
 
 </RelativeLayout>

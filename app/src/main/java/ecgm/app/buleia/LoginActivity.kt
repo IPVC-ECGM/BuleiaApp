@@ -43,7 +43,7 @@ class LoginActivity : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
         checkUser()
 
-        binding.noAccountTv.setOnClickListener{
+        binding.criarconta.setOnClickListener{
             startActivity(Intent(this, SignUp::class.java))
         }
 
@@ -60,37 +60,37 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun validateData(){
-        email = binding.emailEt.text.toString().trim()
-        password = binding.passwordEt.text.toString().trim()
+        email = binding.emailTf.text.toString().trim()
+        password = binding.emailTf.text.toString().trim()
 
         if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-            binding.emailEt.error = "Invalid email format"
+            binding.emailTf.error = "Invalid email format"
         }else if (TextUtils.isEmpty(password)){
-            binding.passwordEt.error="Please Enter a password"
+            binding.emailTf.error="Please Enter a password"
         }else{
             firebaselogin()
-            firebaseAuth.signInWithEmailAndPassword(email, password)
-                .addOnSuccessListener {
-                    //Login com sucesso
-                    progressDialog.dismiss()
-                    //Buscar info do utilizador
-                    val firebaseUser = firebaseAuth.currentUser
-                    val email = firebaseUser!!.email
-                    Toast.makeText(this, "Login as $email", Toast.LENGHT_SHORT).show()
-                    //Abrir Pagina do utilizador
-                    startActivity(Intent(this, Perfil::class.java))
-                    finish()
-                }
-                .addOnFailureListener{
-                    e->
-                    progressDialog.dismiss()
-                    Toast.makeText(this, "Login failed due to ${e.message}", Toast.LENGHT_SHORT).show()
-                }
         }
     }
 
     private fun firebaselogin(){
         progressDialog.show()
+        firebaseAuth.signInWithEmailAndPassword(email, password)
+            .addOnSuccessListener {
+                //Login com sucesso
+                progressDialog.dismiss()
+                //Buscar info do utilizador
+                val firebaseUser = firebaseAuth.currentUser
+                val email = firebaseUser!!.email
+                Toast.makeText(this, "Login as $email", Toast.LENGTH_SHORT).show()
+                //Abrir Pagina do utilizador
+                startActivity(Intent(this, Perfil::class.java))
+                finish()
+            }
+            .addOnFailureListener{
+                    e->
+                progressDialog.dismiss()
+                Toast.makeText(this, "Login failed due to ${e.message}", Toast.LENGTH_SHORT).show()
+            }
     }
 
 }
