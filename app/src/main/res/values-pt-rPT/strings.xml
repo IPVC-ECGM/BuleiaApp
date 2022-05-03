@@ -9,4 +9,6 @@
     <string name="createanaccount">Criar Conta</string>
     <string name="signup">Registar</string>
     <string name="repeatpassword">Repetir Palavra Passe</string>
+    <string name="profile">Perfil</string>
+    <string name="logout">Terminar Sessão</string>
 </resources>
