@@ -10,9 +10,11 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationView
+import ecgm.app.buleia.databinding.ActivityPerfilBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import ecgm.app.buleia.databinding.ActivityPerfilBinding
+import android.os.DropBoxManager
+import androidx.appcompat.graphics.drawable.DrawerArrowDrawable
 
 class Perfil : AppCompatActivity() {
 
@@ -46,11 +48,10 @@ class Perfil : AppCompatActivity() {
                 R.id.history -> Toast.makeText(applicationContext,"clicked History",Toast.LENGTH_SHORT).show()
                 R.id.notificacao -> Toast.makeText(applicationContext,"clicked notificacao",Toast.LENGTH_SHORT).show()
                 R.id.definicao -> Toast.makeText(applicationContext,"clicked definicao",Toast.LENGTH_SHORT).show()
-                R.id.sair -> Toast.makeText(applicationContext,"clicked sair",Toast.LENGTH_SHORT).show()
+                R.id.sair -> firebaseAuth.signOut()
 
             }
             true
-
         }
 
         firebaseAuth = FirebaseAuth.getInstance()

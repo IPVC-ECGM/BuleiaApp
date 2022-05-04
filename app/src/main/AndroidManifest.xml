@@ -16,12 +16,15 @@
             android:exported="false" />
         <activity
             android:name=".SignUp"
+            android:noHistory="true"
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
+            android:noHistory="true"
             android:exported="false" />
         <activity
             android:name=".SplashScreen"
+            android:noHistory="true"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
