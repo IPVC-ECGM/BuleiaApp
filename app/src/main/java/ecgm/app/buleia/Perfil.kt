@@ -49,8 +49,6 @@ class Perfil : AppCompatActivity() {
                 R.id.history -> Toast.makeText(applicationContext,"clicked History",Toast.LENGTH_SHORT).show()
                 R.id.notificacao -> Toast.makeText(applicationContext,"clicked notificacao",Toast.LENGTH_SHORT).show()
                 R.id.definicao -> Toast.makeText(applicationContext,"clicked definicao",Toast.LENGTH_SHORT).show()
-                R.id.sair -> firebaseAuth.signOut()
-
             }
             true
         }
