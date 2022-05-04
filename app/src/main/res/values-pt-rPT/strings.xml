@@ -11,4 +11,8 @@
     <string name="repeatpassword">Repetir Palavra Passe</string>
     <string name="profile">Perfil</string>
     <string name="logout">Terminar Sessão</string>
+    <string name="open">Abrir</string>
+    <string name="close">Fechar</string>
+    <string name="label_message">Mensagem</string>
+    <string name="label_profile">Perfil</string>
 </resources>
