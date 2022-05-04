@@ -60,8 +60,10 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun validateData(){
-        email = binding.emailTf.text.toString().trim()
-        password = binding.emailTf.text.toString().trim()
+
+        //Pegar na informação
+        email = binding.emailTf.toString().trim()
+        password = binding.emailTf.toString().trim()
 
         if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
             binding.emailTf.error = "Invalid email format"
