@@ -2,12 +2,12 @@ package ecgm.app.buleia
 
 import android.app.ProgressDialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import ecgm.app.buleia.databinding.ActivityLoginBinding
 
@@ -54,6 +54,10 @@ class LoginActivity : AppCompatActivity() {
     }
     private fun checkUser(){
         val firebaseUser = firebaseAuth.currentUser
+
+
+
+
         if(firebaseUser != null){
             startActivity(Intent(this, Perfil::class.java))
         }
@@ -64,9 +68,13 @@ class LoginActivity : AppCompatActivity() {
         //Pegar na informação
         email = binding.emailText.text.toString().trim()
         password = binding.passwordText.text.toString().trim()
+        val user = firebaseAuth.currentUser
+        val emailVerified: Boolean = user!!.isEmailVerified()
 
         if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
             binding.emailTf.error = "Invalid email format"
+        }else if(emailVerified != true){
+            binding.emailTf.error = "Email is not verified yet"
         }else if (TextUtils.isEmpty(password)){
             binding.emailTf.error="Please Enter a password"
         }else{

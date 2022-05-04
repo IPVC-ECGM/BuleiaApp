@@ -2,15 +2,15 @@ package ecgm.app.buleia
 
 import android.app.ProgressDialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import ecgm.app.buleia.databinding.ActivitySignUpBinding
 import java.util.regex.Pattern
+
 
 class SignUp : AppCompatActivity() {
 
@@ -68,7 +68,10 @@ class SignUp : AppCompatActivity() {
 
           if (!isValidString(email)) {
             binding.emailTF.error = "Use ipvc email"
-        } else if (TextUtils.isEmpty(password)) {
+
+       // } else if(){
+
+        }else if (TextUtils.isEmpty(password)) {
             binding.passwordTF.error = "Please enter password"
         }else if(TextUtils.isEmpty(passwordrepeat)){
             binding.passwordTF2.error="Please repeat password"
@@ -89,7 +92,10 @@ class SignUp : AppCompatActivity() {
                 val firebaseUser = firebaseAuth.currentUser
                 val email = firebaseUser!!.email
                 Toast.makeText(this, "Account have been created with email $email", Toast.LENGTH_LONG)
-
+                val user = FirebaseAuth.getInstance().currentUser
+                if (user != null) {
+                    user.sendEmailVerification()
+                };
                 startActivity(Intent(this, Perfil::class.java))
                 finish()
             }
