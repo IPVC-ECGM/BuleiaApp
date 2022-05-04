@@ -2,15 +2,15 @@ package ecgm.app.buleia
 
 import android.app.ProgressDialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import ecgm.app.buleia.databinding.ActivitySignUpBinding
 import java.util.regex.Pattern
+
 
 class SignUp : AppCompatActivity() {
 
@@ -24,6 +24,7 @@ class SignUp : AppCompatActivity() {
 
     private var email=""
     private var password=""
+    private var passwordrepeat=""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,15 +48,35 @@ class SignUp : AppCompatActivity() {
         }
 
     }
+    val EMAIL_ADDRESS_PATTERN = Pattern.compile(
+        "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
+                "\\@" +
+                "ipvc" +
+                "(" +
+                "\\." +
+                "pt" +
+                ")+"
+    )
 
+    fun isValidString(str: String): Boolean{
+        return EMAIL_ADDRESS_PATTERN.matcher(str).matches()
+    }
     private fun validateData() {
         email = binding.emailText.text.toString().trim()
         password = binding.passwordText.text.toString().trim()
+        passwordrepeat = binding.passwordText2.text.toString().trim()
 
-        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-            binding.emailTF.error = "Invalid email format"
-        }else if(TextUtils.isEmpty(password)){
+          if (!isValidString(email)) {
+            binding.emailTF.error = "Use ipvc email"
+
+       // } else if(){
+
+        }else if (TextUtils.isEmpty(password)) {
             binding.passwordTF.error = "Please enter password"
+        }else if(TextUtils.isEmpty(passwordrepeat)){
+            binding.passwordTF2.error="Please repeat password"
+        }else if(password != passwordrepeat) {
+            binding.passwordTF2.error="Passwords don´t match"
         }else if (password.length < 6){
             binding.passwordTF.error = "Password must have atleast 6 caracters"
         }else{
@@ -71,8 +92,12 @@ class SignUp : AppCompatActivity() {
                 val firebaseUser = firebaseAuth.currentUser
                 val email = firebaseUser!!.email
                 Toast.makeText(this, "Account have been created with email $email", Toast.LENGTH_LONG)
-
-                startActivity(Intent(this, Perfil::class.java))
+                val user = FirebaseAuth.getInstance().currentUser
+                if (user != null) {
+                    user.sendEmailVerification()
+                };
+                firebaseAuth.signOut()
+                startActivity(Intent(this, LoginActivity::class.java))
                 finish()
             }
             .addOnFailureListener{e->
