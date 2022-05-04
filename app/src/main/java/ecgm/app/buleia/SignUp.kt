@@ -3,9 +3,13 @@ package ecgm.app.buleia
 import android.app.ProgressDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.TextUtils
+import android.util.Patterns
+import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import com.google.firebase.auth.FirebaseAuth
 import ecgm.app.buleia.databinding.ActivitySignUpBinding
+import java.util.regex.Pattern
 
 class SignUp : AppCompatActivity() {
 
@@ -44,7 +48,34 @@ class SignUp : AppCompatActivity() {
     }
 
     private fun validateData() {
+        email = binding.emailTF.toString().trim()
+        password = binding.passwordTF.toString().trim()
 
+        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            binding.emailTF.error = "Invalid email format"
+        }else if(TextUtils.isEmpty(password)){
+            binding.passwordTF.error = "Please enter password"
+        }else if (password.length < 6){
+            binding.passwordTF.error = "Password must have atleast 6 caracters"
+        }else{
+            firebaseSignUp()
+        }
+    }
+
+    private fun firebaseSignUp() {
+        progressDialog.show()
+
+        firebaseAuth.createUserWithEmailAndPassword(email, password)
+            .addOnSuccessListener {
+                val firebaseUser = firebaseAuth.currentUser
+                val email = firebaseUser!!.email
+                Toast.makeText(this, "Account have been created with email $email", Toast.LENGTH_LONG)
+
+            }
+            .addOnFailureListener{
+                progressDialog.dismiss()
+                Toast.makeText(this, "Sign Up Failded due to ${e.message}", Toast.LENGTH_LONG)
+            }
     }
 
     override fun onSupportNavigateUp(): Boolean {
