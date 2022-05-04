@@ -6,10 +6,12 @@ import android.os.Handler
 import android.os.Looper
 import android.util.DisplayMetrics
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.startActivity
 
 
+class SplashScreen : AppCompatActivity(){
 
-class SplashScreen : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splashscreen)
@@ -29,7 +31,7 @@ class SplashScreen : AppCompatActivity() {
         Handler(Looper.getMainLooper()).postDelayed({
             // Your Code
             val intent = Intent(this@SplashScreen, LoginActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, LoginActivity::class.java))
         }, 0)
     }
 }
