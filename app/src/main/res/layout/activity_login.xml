@@ -29,7 +29,7 @@
         android:layout_marginLeft="30dp">
 
         <EditText
-            android:id="@+id/email_text"
+            android:id="@+id/emailText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
@@ -51,7 +51,7 @@
         android:layout_below="@+id/emailTf">
 
         <EditText
-            android:id="@+id/password_text"
+            android:id="@+id/passwordText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"

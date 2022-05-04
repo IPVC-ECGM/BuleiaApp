@@ -49,8 +49,8 @@ class SignUp : AppCompatActivity() {
     }
 
     private fun validateData() {
-        email = binding.emailTF.toString().trim()
-        password = binding.passwordTF.toString().trim()
+        email = binding.emailText.text.toString().trim()
+        password = binding.passwordText.text.toString().trim()
 
         if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
             binding.emailTF.error = "Invalid email format"
