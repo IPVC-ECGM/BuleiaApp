@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "390435498743",
+    "project_id": "buleia-125ff",
+    "storage_bucket": "buleia-125ff.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:390435498743:android:b6c3bb199eb054dbf341f2",
+        "android_client_info": {
+          "package_name": "ecgm.buleia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "390435498743-1akiv3as9e9rtidh0osdhosjfmqej7e8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ecgm.buleia",
+            "certificate_hash": "cf97a5ac843167b98a2aeef290eea5a8a2e8ad6c"
+          }
+        },
+        {
+          "client_id": "390435498743-dcf40gb7fgrb197gl0oo7q87b30joqqn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAhDUC0L4a8xtqnRqrDjbt7AGuoxT42vI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "390435498743-dcf40gb7fgrb197gl0oo7q87b30joqqn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

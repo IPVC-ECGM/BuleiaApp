@@ -1,3 +1,13 @@
 <resources>
-    <string name="app_name">BULEIA</string>
+    <string name="app_name">Buleia</string>
+    <string name="profile_label">Profile</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="loginButton">Login</string>
+    <string name="login_name">Login</string>
+    <string name="createanaccount">Create an Account</string>
+    <string name="signup">Sign Up</string>
+    <string name="repeatpassword">Repeat Password</string>
+    <string name="profile">Profile</string>
+    <string name="logout">Log Out</string>
 </resources>
