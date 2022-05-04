@@ -96,7 +96,8 @@ class SignUp : AppCompatActivity() {
                 if (user != null) {
                     user.sendEmailVerification()
                 };
-                startActivity(Intent(this, Perfil::class.java))
+                firebaseAuth.signOut()
+                startActivity(Intent(this, LoginActivity::class.java))
                 finish()
             }
             .addOnFailureListener{e->

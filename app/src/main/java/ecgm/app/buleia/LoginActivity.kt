@@ -69,12 +69,16 @@ class LoginActivity : AppCompatActivity() {
         email = binding.emailText.text.toString().trim()
         password = binding.passwordText.text.toString().trim()
         val user = firebaseAuth.currentUser
-        val emailVerified: Boolean = user!!.isEmailVerified()
+
+        if (user != null) {
+            val emailVerified: Boolean = user.isEmailVerified()
+            if(emailVerified != true){
+                binding.emailTf.error = "Email was not verified yet"
+            }
+        }
 
         if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
             binding.emailTf.error = "Invalid email format"
-        }else if(emailVerified != true){
-            binding.emailTf.error = "Email is not verified yet"
         }else if (TextUtils.isEmpty(password)){
             binding.emailTf.error="Please Enter a password"
         }else{
