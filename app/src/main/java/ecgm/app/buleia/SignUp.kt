@@ -1,6 +1,7 @@
 package ecgm.app.buleia
 
 import android.app.ProgressDialog
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
@@ -71,8 +72,10 @@ class SignUp : AppCompatActivity() {
                 val email = firebaseUser!!.email
                 Toast.makeText(this, "Account have been created with email $email", Toast.LENGTH_LONG)
 
+                startActivity(Intent(this, Perfil::class.java))
+                finish()
             }
-            .addOnFailureListener{
+            .addOnFailureListener{e->
                 progressDialog.dismiss()
                 Toast.makeText(this, "Sign Up Failded due to ${e.message}", Toast.LENGTH_LONG)
             }
