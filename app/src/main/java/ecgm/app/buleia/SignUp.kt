@@ -24,6 +24,7 @@ class SignUp : AppCompatActivity() {
 
     private var email=""
     private var password=""
+    private var passwordrepeat=""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,11 +52,16 @@ class SignUp : AppCompatActivity() {
     private fun validateData() {
         email = binding.emailText.text.toString().trim()
         password = binding.passwordText.text.toString().trim()
+        passwordrepeat = binding.passwordText2.text.toString().trim()
 
-        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             binding.emailTF.error = "Invalid email format"
-        }else if(TextUtils.isEmpty(password)){
+        } else if (TextUtils.isEmpty(password)) {
             binding.passwordTF.error = "Please enter password"
+        }else if(TextUtils.isEmpty(passwordrepeat)){
+            binding.passwordTF2.error="Please repeat password"
+        }else if(password != passwordrepeat) {
+            binding.passwordTF2.error="Passwords don´t match"
         }else if (password.length < 6){
             binding.passwordTF.error = "Password must have atleast 6 caracters"
         }else{
