@@ -102,7 +102,7 @@ class SignUp : AppCompatActivity() {
             }
             .addOnFailureListener{e->
                 progressDialog.dismiss()
-                Toast.makeText(this, "Sign Up Failded due to ${e.message}", Toast.LENGTH_LONG)
+                Toast.makeText(this, "Sign Up Failed due to ${e.message}", Toast.LENGTH_LONG)
             }
     }
 

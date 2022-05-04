@@ -55,27 +55,17 @@ class LoginActivity : AppCompatActivity() {
     private fun checkUser(){
         val firebaseUser = firebaseAuth.currentUser
 
-
-
-
         if(firebaseUser != null){
             startActivity(Intent(this, Perfil::class.java))
         }
     }
 
-    private fun validateData(){
+    private fun validateData() {
 
         //Pegar na informação
         email = binding.emailText.text.toString().trim()
         password = binding.passwordText.text.toString().trim()
-        val user = firebaseAuth.currentUser
 
-        if (user != null) {
-            val emailVerified: Boolean = user.isEmailVerified()
-            if(emailVerified != true){
-                binding.emailTf.error = "Email was not verified yet"
-            }
-        }
 
         if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
             binding.emailTf.error = "Invalid email format"
@@ -88,17 +78,28 @@ class LoginActivity : AppCompatActivity() {
 
     private fun firebaselogin(){
         progressDialog.show()
+
+
+
+
         firebaseAuth.signInWithEmailAndPassword(email, password)
             .addOnSuccessListener {
                 //Login com sucesso
                 progressDialog.dismiss()
                 //Buscar info do utilizador
                 val firebaseUser = firebaseAuth.currentUser
-                val email = firebaseUser!!.email
-                Toast.makeText(this, "Login as $email", Toast.LENGTH_SHORT).show()
-                //Abrir Pagina do utilizador
-                startActivity(Intent(this, Perfil::class.java))
-                finish()
+                val emailVerified: Boolean = firebaseUser!!.isEmailVerified()
+
+                if(emailVerified != true){
+                   // Toast.makeText(this, "$emailVerified", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Email not verified", Toast.LENGTH_SHORT).show()
+                }else {
+                    val email = firebaseUser!!.email
+                    Toast.makeText(this, "Login as $email", Toast.LENGTH_SHORT).show()
+                    //Abrir Pagina do utilizador
+                    startActivity(Intent(this, Perfil::class.java))
+                    finish()
+                }
             }
             .addOnFailureListener{
                     e->
