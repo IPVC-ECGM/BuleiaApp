@@ -8,6 +8,7 @@ import android.util.DisplayMetrics
 import androidx.appcompat.app.AppCompatActivity
 
 
+
 class SplashScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
