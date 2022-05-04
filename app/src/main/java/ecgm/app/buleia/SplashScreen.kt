@@ -27,6 +27,7 @@ class SplashScreen : AppCompatActivity(){
         Constantes.Screen_Width  = displayMetrics.heightPixels
 
 
+
         Handler(Looper.getMainLooper()).postDelayed({
             // Your Code
             val intent = Intent(this@SplashScreen, LoginActivity::class.java)
