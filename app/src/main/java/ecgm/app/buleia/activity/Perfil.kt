@@ -3,6 +3,9 @@ package ecgm.app.buleia.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Layout
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
@@ -13,6 +16,7 @@ import com.google.android.material.navigation.NavigationView
 import ecgm.app.buleia.databinding.ActivityPerfilBinding
 import com.google.firebase.auth.FirebaseAuth
 import android.view.View
+import com.google.android.material.navigation.NavigationBarMenu
 import ecgm.app.buleia.HomeFragment
 import ecgm.app.buleia.R
 
@@ -54,11 +58,6 @@ class Perfil : AppCompatActivity() {
 
         firebaseAuth = FirebaseAuth.getInstance()
         checkUser()
-
-//        binding.buttonlogout.setOnClickListener{
-//            firebaseAuth.signOut()
-//            checkUser()
-//        }
     }
 
     private  fun replaceFragment(fragment: Fragment, title:String){
@@ -72,10 +71,26 @@ class Perfil : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
+
         if(toggle.onOptionsItemSelected(item)){
             return true
         }
+
+        if (id == R.id.action_msg) {
+
+            val intent = Intent(this, UsersActivity::class.java)
+            this.startActivity(intent)
+            return true
+        }
+
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.top_chat, menu)
+        return true
     }
 
     private fun checkUser() {
@@ -96,4 +111,6 @@ class Perfil : AppCompatActivity() {
         firebaseAuth.signOut()
         checkUser()
     }
+
+
 }
