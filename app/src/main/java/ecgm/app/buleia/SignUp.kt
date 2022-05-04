@@ -48,14 +48,26 @@ class SignUp : AppCompatActivity() {
         }
 
     }
+    val EMAIL_ADDRESS_PATTERN = Pattern.compile(
+        "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
+                "\\@" +
+                "ipvc" +
+                "(" +
+                "\\." +
+                "pt" +
+                ")+"
+    )
 
+    fun isValidString(str: String): Boolean{
+        return EMAIL_ADDRESS_PATTERN.matcher(str).matches()
+    }
     private fun validateData() {
         email = binding.emailText.text.toString().trim()
         password = binding.passwordText.text.toString().trim()
         passwordrepeat = binding.passwordText2.text.toString().trim()
 
-        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            binding.emailTF.error = "Invalid email format"
+          if (!isValidString(email)) {
+            binding.emailTF.error = "Use ipvc email"
         } else if (TextUtils.isEmpty(password)) {
             binding.passwordTF.error = "Please enter password"
         }else if(TextUtils.isEmpty(passwordrepeat)){
