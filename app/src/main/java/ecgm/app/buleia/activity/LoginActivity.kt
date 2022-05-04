@@ -1,4 +1,4 @@
-package ecgm.app.buleia
+package ecgm.app.buleia.activity
 
 import android.app.ProgressDialog
 import android.content.Intent

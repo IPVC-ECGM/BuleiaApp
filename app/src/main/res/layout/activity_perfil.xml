@@ -6,7 +6,7 @@
     android:id="@+id/drawerlayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Perfil">
+    tools:context=".activity.Perfil">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

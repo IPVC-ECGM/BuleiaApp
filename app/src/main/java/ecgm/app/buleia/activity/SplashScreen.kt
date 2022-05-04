@@ -1,4 +1,4 @@
-package ecgm.app.buleia
+package ecgm.app.buleia.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,7 +6,8 @@ import android.os.Handler
 import android.os.Looper
 import android.util.DisplayMetrics
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat.startActivity
+import ecgm.app.buleia.Constantes
+import ecgm.app.buleia.R
 
 
 class SplashScreen : AppCompatActivity(){
@@ -24,7 +25,7 @@ class SplashScreen : AppCompatActivity(){
         val displayMetrics: DisplayMetrics = getResources().getDisplayMetrics()
         //Gravar os valores nas constantes da classe constantes
         Constantes.Screen_Width = displayMetrics.widthPixels
-        Constantes.Screen_Width  = displayMetrics.heightPixels
+        Constantes.Screen_Width = displayMetrics.heightPixels
 
 
 

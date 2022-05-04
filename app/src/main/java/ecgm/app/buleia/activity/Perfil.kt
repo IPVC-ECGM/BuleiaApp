@@ -1,4 +1,4 @@
-package ecgm.app.buleia
+package ecgm.app.buleia.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -12,10 +12,9 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationView
 import ecgm.app.buleia.databinding.ActivityPerfilBinding
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
-import android.os.DropBoxManager
 import android.view.View
-import androidx.appcompat.graphics.drawable.DrawerArrowDrawable
+import ecgm.app.buleia.HomeFragment
+import ecgm.app.buleia.R
 
 class Perfil : AppCompatActivity() {
 
@@ -36,7 +35,7 @@ class Perfil : AppCompatActivity() {
         drawerLayout = findViewById(R.id.drawerlayout)
         val menu1 : NavigationView = findViewById(R.id.menu_1)
 
-        toggle = ActionBarDrawerToggle(this,drawerLayout,R.string.open,R.string.close)
+        toggle = ActionBarDrawerToggle(this,drawerLayout, R.string.open, R.string.close)
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
 
