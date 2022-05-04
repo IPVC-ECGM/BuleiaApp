@@ -8,17 +8,27 @@
     android:background="@color/primary_text">
 
     <ImageView
-        android:layout_width="150dp"
-        android:layout_height="120dp"
-        android:src="@drawable/buleia"/>
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/buleia" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="30dp"
-        android:text="Buleia"
-        android:layout_marginLeft="40dp"
-        android:textColor="@color/design_default_color_error"
-        android:textStyle="bold"/>
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="26dp"-->
+<!--        android:text="Buleia"-->
+<!--        android:textColor="@color/icons"-->
+<!--        android:textSize="20sp"-->
+<!--        android:textStyle="bold" />-->
+
+    <Button
+        android:id="@+id/buttonlogout"
+        android:layout_width="90dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="150dp"
+        android:onClick="logoutClick"
+        android:text="@string/logout"
+        android:textColor="@color/icons"
+        android:textSize="10sp" />
+
 
 </LinearLayout>

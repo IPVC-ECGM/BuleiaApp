@@ -18,18 +18,18 @@
         android:layout_height="match_parent"
         />
 
-        <Button
-            android:id="@+id/buttonlogout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_centerHorizontal="true"
-            android:text="@string/logout"
-            android:textColor="@color/icons"
-            android:textSize="20sp"
-            tools:ignore="MissingConstraints">
-        </Button>
+<!--        <Button-->
+<!--            android:id="@+id/buttonlogout"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:text="@string/logout"-->
+<!--            android:textColor="@color/icons"-->
+<!--            android:textSize="20sp"-->
+<!--            tools:ignore="MissingConstraints">-->
+<!--        </Button>-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -14,12 +14,13 @@ import ecgm.app.buleia.databinding.ActivityPerfilBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import android.os.DropBoxManager
+import android.view.View
 import androidx.appcompat.graphics.drawable.DrawerArrowDrawable
 
 class Perfil : AppCompatActivity() {
 
-    lateinit var toggle: ActionBarDrawerToggle
-    lateinit var drawerLayout: DrawerLayout
+    private lateinit var toggle: ActionBarDrawerToggle
+    private lateinit var drawerLayout: DrawerLayout
 
     private lateinit var binding: ActivityPerfilBinding
     private lateinit var actionBar: ActionBar
@@ -57,10 +58,10 @@ class Perfil : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
         checkUser()
 
-        binding.buttonlogout.setOnClickListener{
-            firebaseAuth.signOut()
-            checkUser()
-        }
+//        binding.buttonlogout.setOnClickListener{
+//            firebaseAuth.signOut()
+//            checkUser()
+//        }
     }
 
     private  fun replaceFragment(fragment: Fragment, title:String){
@@ -92,5 +93,10 @@ class Perfil : AppCompatActivity() {
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }
+    }
+
+    fun logoutClick(view: View) {
+        firebaseAuth.signOut()
+        checkUser()
     }
 }
