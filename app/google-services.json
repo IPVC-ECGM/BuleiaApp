@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:390435498743:android:b6c3bb199eb054dbf341f2",
         "android_client_info": {
-          "package_name": "ecgm.buleia"
+          "package_name": "ecgm.app.buleia"
         }
       },
       "oauth_client": [
@@ -17,7 +17,7 @@
           "client_id": "390435498743-1akiv3as9e9rtidh0osdhosjfmqej7e8.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "ecgm.buleia",
+            "package_name": "ecgm.app.buleia",
             "certificate_hash": "cf97a5ac843167b98a2aeef290eea5a8a2e8ad6c"
           }
         },

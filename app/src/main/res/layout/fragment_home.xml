@@ -13,7 +13,7 @@
         android:layout_gravity="center"
         android:text="Home"
         android:textStyle="bold"
-        android:textColor="@color/black"
+        android:textColor="@color/primary_text"
         android:textSize="60dp"/>
 
 </FrameLayout>
