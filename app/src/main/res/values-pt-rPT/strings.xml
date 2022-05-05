@@ -15,4 +15,6 @@
     <string name="close">Fechar</string>
     <string name="label_message">Mensagem</string>
     <string name="label_profile">Perfil</string>
+    <string name="PleaseWait">Espere Por Favor</string>
+    <string name="useipvc">Use um e-mail do ipvc</string>
 </resources>

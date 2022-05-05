@@ -16,4 +16,6 @@
     <string name="label_message">Message</string>
     <string name="label_profile">Profile</string>
     <string name="action_msg" translatable="false">action_msg</string>
+    <string name="PleaseWait">Wait Please</string>
+    <string name="useipvc">Use ipvc email</string>
 </resources>

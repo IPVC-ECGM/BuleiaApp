@@ -3,9 +3,9 @@
     <color name="primary">#262626</color>
     <color name="primary_dark">#262626</color>
     <color name="primary_light">#262626</color>
-    <color name="accent">#9E9E9E</color>
-    <color name="primary_text">#212121</color>
-    <color name="secondary_text">#757575</color>
+    <color name="accent">#D92B3A</color>
+    <color name="primary_text">#F2F2F2</color>
+    <color name="secondary_text">#262626</color>
     <color name="icons">#ED1848</color>
     <color name="divider">#BDBDBD</color>
 </resources>

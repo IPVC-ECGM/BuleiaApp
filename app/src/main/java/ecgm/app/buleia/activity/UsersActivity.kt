@@ -28,6 +28,7 @@ class UsersActivity : AppCompatActivity() {
         val recycle = findViewById<RecyclerView>(R.id.userRecyclerView)
         recycle.layoutManager = LinearLayoutManager(this)
 
+        //Wtf??
         userList.add(User("","BAKA", "https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/anime_spirited_away_no_face_nobody-512.png"))
         userList.add(User("","BAKA", "https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/anime_spirited_away_no_face_nobody-512.png"))
         userList.add(User("","BAKA", "https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/anime_spirited_away_no_face_nobody-512.png"))
