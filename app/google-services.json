@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "727831979200",
+    "firebase_url": "https://buleiatest-default-rtdb.firebaseio.com",
+    "project_id": "buleiatest",
+    "storage_bucket": "buleiatest.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:727831979200:android:8640e005628f3d249bf925",
+        "android_client_info": {
+          "package_name": "ecgm.app.buleia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "727831979200-622uc3vqov43b9tecu68sb8tqacur7r0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ecgm.app.buleia",
+            "certificate_hash": "d61466fcd4d79ff4bad3c35b7ce8f86a66bfdefb"
+          }
+        },
+        {
+          "client_id": "727831979200-d47ld8c3emqu8odbdehgufud1dftqvdu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOtFjeme__mXBSw2DllR0mxR-64TtcE8s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "727831979200-d47ld8c3emqu8odbdehgufud1dftqvdu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
