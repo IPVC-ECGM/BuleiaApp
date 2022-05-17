@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:padding="20dp"
+    android:background="@color/primary_text">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/buleia" />
+
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="26dp"-->
+<!--        android:text="Buleia"-->
+<!--        android:textColor="@color/icons"-->
+<!--        android:textSize="20sp"-->
+<!--        android:textStyle="bold" />-->
+
+    <Button
+        android:id="@+id/buttonlogout"
+        android:layout_width="90dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="150dp"
+        android:onClick="logoutClick"
+        android:text="@string/logout"
+        android:textColor="@color/icons"
+        android:textSize="10sp" />
+
+
+</LinearLayout>
