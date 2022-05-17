@@ -17,7 +17,7 @@ import ecgm.app.buleia.databinding.ActivityPerfilBinding
 import com.google.firebase.auth.FirebaseAuth
 import android.view.View
 import com.google.android.material.navigation.NavigationBarMenu
-import ecgm.app.buleia.HomeFragment
+
 import ecgm.app.buleia.R
 
 class Perfil : AppCompatActivity() {
@@ -45,30 +45,43 @@ class Perfil : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        menu1.setNavigationItemSelectedListener {
-            it.isChecked = true
-            when(it.itemId){
-                R.id.home -> replaceFragment(HomeFragment(),it.title.toString())
-                R.id.history -> Toast.makeText(applicationContext,"clicked History",Toast.LENGTH_SHORT).show()
-                R.id.notificacao -> Toast.makeText(applicationContext,"clicked notificacao",Toast.LENGTH_SHORT).show()
-                R.id.definicao -> Toast.makeText(applicationContext,"clicked definicao",Toast.LENGTH_SHORT).show()
+
+            menu1.setNavigationItemSelectedListener {
+
+                when(it.itemId){
+                    R.id.home -> {
+                        val intent = Intent(this, HomeActivity::class.java)
+                        startActivity(intent)
+                        finish()
+
+                    }
+                    R.id.history -> {
+                        val intent = Intent(this, HistoryActivity::class.java)
+                        startActivity(intent)
+                        finish()
+
+
+                    }
+                    R.id.notificacao -> {
+                        val intent = Intent(this, NotificationsActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    }
+                    R.id.definicao -> {
+                        val intent = Intent(this, SettingsActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    }
+
+                }
+
+                true
             }
-            true
-        }
 
         firebaseAuth = FirebaseAuth.getInstance()
         checkUser()
     }
 
-    private  fun replaceFragment(fragment: Fragment, title:String){
-        val fragmentManager = supportFragmentManager
-        val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.frame,fragment)
-        fragmentTransaction.commit()
-        drawerLayout.closeDrawers()
-        setTitle(title)
-
-    }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id = item.itemId
