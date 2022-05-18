@@ -20,4 +20,5 @@
     <string name="username">Nome de utilizador</string>
     <string name="btn_save">Mudar Imagem</string>
     <string name="btn_name">Mudar o Nome</string>
+    <string name="type_message">Escreva a sua mensagem</string>
 </resources>

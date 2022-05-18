@@ -14,6 +14,7 @@ import ecgm.app.buleia.R
 //import ecgm.app.buleia.activity.ChatActivity
 import ecgm.app.buleia.model.User
 import de.hdodenhof.circleimageview.CircleImageView
+import ecgm.app.buleia.activity.ChatActivity
 
 class UserAdapter(private val context: Context, private val userList: ArrayList<User>) :
     RecyclerView.Adapter<UserAdapter.ViewHolder>() {
@@ -34,12 +35,12 @@ class UserAdapter(private val context: Context, private val userList: ArrayList<
         holder.txtUserName.text = user.userName
         Glide.with(context).load(user.profileImage).placeholder(R.drawable.profile_image).into(holder.imgUser)
 
-//        holder.layoutUser.setOnClickListener {
-//            val intent = Intent(context,ChatActivity::class.java)
-//            intent.putExtra("userId",user.userId)
-//            intent.putExtra("userName",user.userName)
-//            context.startActivity(intent)
-//        }
+        holder.layoutUser.setOnClickListener {
+            val intent = Intent(context, ChatActivity::class.java)
+            intent.putExtra("userId",user.userId)
+            intent.putExtra("userName",user.userName)
+            context.startActivity(intent)
+        }
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
