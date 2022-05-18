@@ -1,12 +1,9 @@
 package ecgm.app.buleia.activity
 
-import android.content.Context
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.MenuItem
-import android.widget.LinearLayout
 import android.widget.Toast
+import androidx.appcompat.app.ActionBar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -16,27 +13,56 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 import ecgm.app.buleia.R
-//import kotlinx.android.synthetic.main.activity_users.*
+import kotlinx.android.synthetic.main.activity_settings.*
 
 class UsersActivity : AppCompatActivity() {
+    private lateinit var actionBar: ActionBar
     var userList = ArrayList<User>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_users)
+        actionBar = supportActionBar!!
+        actionBar.title = "Messages"
 
-        val recycle = findViewById<RecyclerView>(R.id.userRecyclerView)
-        recycle.layoutManager = LinearLayoutManager(this)
+        getUsersList()
+    }
 
-        //Wtf??
-        userList.add(User("","BAKA", "https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/anime_spirited_away_no_face_nobody-512.png"))
-        userList.add(User("","BAKA", "https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/anime_spirited_away_no_face_nobody-512.png"))
-        userList.add(User("","BAKA", "https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/anime_spirited_away_no_face_nobody-512.png"))
-        userList.add(User("","BAKA", "https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/anime_spirited_away_no_face_nobody-512.png"))
-        userList.add(User("","BAKA", "https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/anime_spirited_away_no_face_nobody-512.png"))
-        userList.add(User("","BAKA", "https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/anime_spirited_away_no_face_nobody-512.png"))
+    fun getUsersList() {
+        val firebase: FirebaseUser = FirebaseAuth.getInstance().currentUser!!
 
-        val userAdapter = UserAdapter(this@UsersActivity, userList)
-        recycle.adapter = userAdapter
+        val databaseReference: DatabaseReference = FirebaseDatabase.getInstance().getReference("Users")
+
+
+        databaseReference.addValueEventListener(object : ValueEventListener {
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(applicationContext, error.message, Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onDataChange(snapshot: DataSnapshot) {
+                userList.clear()
+
+//                val currentUser = snapshot.getValue(User::class.java)
+//                if (currentUser!!.profileImage == "") {
+//                    userImage.setImageResource(R.drawable.profile_image)
+//                } else {
+//                    Glide.with(this@UsersActivity).load(currentUser.profileImage).into(userImage)
+//                }
+
+                for (dataSnapShot: DataSnapshot in snapshot.children) {
+                    val user = dataSnapShot.getValue(User::class.java)
+
+                    if (!user!!.userId.equals(firebase.uid)) {
+
+                        userList.add(user)
+                    }
+                }
+                val recycle = findViewById<RecyclerView>(R.id.userRecyclerView)
+                recycle.layoutManager = LinearLayoutManager(this@UsersActivity)
+
+                val userAdapter = UserAdapter(this@UsersActivity, userList)
+                recycle.adapter = userAdapter
+            }
+        })
     }
 }

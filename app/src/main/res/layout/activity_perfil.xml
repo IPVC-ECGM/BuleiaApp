@@ -6,7 +6,7 @@
     android:id="@+id/drawerlayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.Perfil">
+    tools:context=".activity.ProfileActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -18,29 +18,7 @@
         android:layout_height="match_parent"
         />
 
-<!--        <Button-->
-<!--            android:id="@+id/buttonlogout"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            android:layout_centerHorizontal="true"-->
-<!--            android:text="@string/logout"-->
-<!--            android:textColor="@color/icons"-->
-<!--            android:textSize="20sp"-->
-<!--            tools:ignore="MissingConstraints">-->
-<!--        </Button>-->
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-<!--    <TextView-->
-<!--        android:id="@+id/profile_label"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="@string/profile"-->
-<!--        android:textSize="40dp"-->
-<!--        android:textColor="@color/primary_dark">-->
-<!--    </TextView>-->
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/menu_1"

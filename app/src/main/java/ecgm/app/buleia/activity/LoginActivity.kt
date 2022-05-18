@@ -44,7 +44,7 @@ class LoginActivity : AppCompatActivity() {
         checkUser()
 
         binding.criarconta.setOnClickListener{
-            startActivity(Intent(this, SignUp::class.java))
+            startActivity(Intent(this, SignUpActivity::class.java))
         }
 
         binding.buttonLogin.setOnClickListener{
@@ -56,7 +56,7 @@ class LoginActivity : AppCompatActivity() {
         val firebaseUser = firebaseAuth.currentUser
 
         if(firebaseUser != null){
-            startActivity(Intent(this, Perfil::class.java))
+            startActivity(Intent(this, HomeActivity::class.java))
         }
     }
 
@@ -97,7 +97,7 @@ class LoginActivity : AppCompatActivity() {
                     val email = firebaseUser!!.email
                     Toast.makeText(this, "Login as $email", Toast.LENGTH_SHORT).show()
                     //Abrir Pagina do utilizador
-                    startActivity(Intent(this, Perfil::class.java))
+                    startActivity(Intent(this, HomeActivity::class.java))
                     finish()
                 }
             }
