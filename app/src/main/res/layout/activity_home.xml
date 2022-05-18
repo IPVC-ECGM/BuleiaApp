@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.HomeActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/primary_dark">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
@@ -46,13 +47,33 @@
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <SearchView
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <Button
+            android:id="@+id/btnShow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Where go?"
+            android:textColor="@color/divider"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <!--<SearchView
+
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="16dp"
-        android:background="@color/accent" />
+        android:background="@color/accent" />-->
 
     <ImageView
         android:id="@+id/imageView"
@@ -67,6 +88,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:textColor="@color/divider"
         android:text="Recent Trip" />
 
     <androidx.cardview.widget.CardView
@@ -74,14 +96,17 @@
         android:layout_height="61dp"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="30dp"
-        app:cardBackgroundColor="@color/accent" />
+        app:cardBackgroundColor="@color/accent"
+        app:cardCornerRadius="15dp"
+        />
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="62dp"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="30dp"
-        app:cardBackgroundColor="@color/accent" />
+        app:cardBackgroundColor="@color/accent"
+        app:cardCornerRadius="15dp"/>
 
 
 </LinearLayout>
