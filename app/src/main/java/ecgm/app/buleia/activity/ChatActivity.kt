@@ -2,25 +2,31 @@ package ecgm.app.buleia.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.LinearLayout
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 import ecgm.app.buleia.R
+import ecgm.app.buleia.adapter.ChatAdapter
+import ecgm.app.buleia.model.Chat
 import ecgm.app.buleia.model.User
 import kotlinx.android.synthetic.main.activity_chat.*
 
 class ChatActivity : AppCompatActivity() {
     var firebaseUser: FirebaseUser? = null
     var reference: DatabaseReference? = null
-//    var chatList = ArrayList<Chat>()
-//    var topic = ""
+    var chatList = ArrayList<Chat>()
+    var topic = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chat)
         supportActionBar?.hide()
+
+        chatRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
 
         var intent = getIntent()
         var userId = intent.getStringExtra("userId")
@@ -59,17 +65,16 @@ class ChatActivity : AppCompatActivity() {
                 etMessage.setText("")
             } else {
                 sendMessage(firebaseUser!!.uid, userId, message)
-//                etMessage.setText("")
+                etMessage.setText("")
 //                topic = "/topics/$userId"
 //                PushNotification(NotificationData( userName!!,message),
 //                    topic).also {
 //                    sendNotification(it)
 //                }
-//
             }
         }
 
-//        readMessage(firebaseUser!!.uid, userId)
+        readMessage(firebaseUser!!.uid, userId)
     }
 
     private fun sendMessage(senderId: String, receiverId: String, message: String) {
@@ -82,5 +87,33 @@ class ChatActivity : AppCompatActivity() {
 
         reference!!.child("Chat").push().setValue(hashMap)
 
+    }
+
+    fun readMessage(senderId: String, receiverId: String) {
+        val databaseReference: DatabaseReference =
+            FirebaseDatabase.getInstance().getReference("Chat")
+
+        databaseReference.addValueEventListener(object : ValueEventListener {
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+            override fun onDataChange(snapshot: DataSnapshot) {
+                chatList.clear()
+                for (dataSnapShot: DataSnapshot in snapshot.children) {
+                    val chat = dataSnapShot.getValue(Chat::class.java)
+
+                    if (chat!!.senderId.equals(senderId) && chat!!.receiverId.equals(receiverId) ||
+                        chat!!.senderId.equals(receiverId) && chat!!.receiverId.equals(senderId)
+                    ) {
+                        chatList.add(chat)
+                    }
+                }
+
+                val chatAdapter = ChatAdapter(this@ChatActivity, chatList)
+
+                chatRecyclerView.adapter = chatAdapter
+            }
+        })
     }
 }
