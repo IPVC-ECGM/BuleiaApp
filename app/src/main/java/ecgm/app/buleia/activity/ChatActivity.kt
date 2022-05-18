@@ -2,6 +2,7 @@ package ecgm.app.buleia.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -49,5 +50,37 @@ class ChatActivity : AppCompatActivity() {
                 }
             }
         })
+
+        btnSendMessage.setOnClickListener {
+            var message: String = etMessage.text.toString()
+
+            if (message.isEmpty()) {
+                Toast.makeText(applicationContext, "message is empty", Toast.LENGTH_SHORT).show()
+                etMessage.setText("")
+            } else {
+                sendMessage(firebaseUser!!.uid, userId, message)
+//                etMessage.setText("")
+//                topic = "/topics/$userId"
+//                PushNotification(NotificationData( userName!!,message),
+//                    topic).also {
+//                    sendNotification(it)
+//                }
+//
+            }
+        }
+
+//        readMessage(firebaseUser!!.uid, userId)
+    }
+
+    private fun sendMessage(senderId: String, receiverId: String, message: String) {
+        var reference: DatabaseReference? = FirebaseDatabase.getInstance().getReference()
+
+        var hashMap: HashMap<String, String> = HashMap()
+        hashMap.put("senderId", senderId)
+        hashMap.put("receiverId", receiverId)
+        hashMap.put("message", message)
+
+        reference!!.child("Chat").push().setValue(hashMap)
+
     }
 }

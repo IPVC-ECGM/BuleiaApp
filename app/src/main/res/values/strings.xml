@@ -22,5 +22,6 @@
     <string name="btn_save">Change Image</string>
     <string name="btn_name">Change Name</string>
     <string name="type_message">Type Your Message</string>
+    <string name="btn_send" >Send Message</string>
 
 </resources>
