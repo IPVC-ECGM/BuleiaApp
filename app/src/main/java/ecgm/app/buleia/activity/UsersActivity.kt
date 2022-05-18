@@ -1,22 +1,16 @@
 package ecgm.app.buleia.activity
 
-import android.content.Context
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.MenuItem
-import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import ecgm.app.buleia.adapter.UserAdapter
 import ecgm.app.buleia.model.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 import ecgm.app.buleia.R
-//import kotlinx.android.synthetic.main.activity_users.*
 
 class UsersActivity : AppCompatActivity() {
     var userList = ArrayList<User>()
@@ -25,18 +19,37 @@ class UsersActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_users)
 
-        val recycle = findViewById<RecyclerView>(R.id.userRecyclerView)
-        recycle.layoutManager = LinearLayoutManager(this)
+        getUsersList()
+    }
 
-        //Wtf??
-        userList.add(User("","BAKA", "https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/anime_spirited_away_no_face_nobody-512.png"))
-        userList.add(User("","BAKA", "https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/anime_spirited_away_no_face_nobody-512.png"))
-        userList.add(User("","BAKA", "https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/anime_spirited_away_no_face_nobody-512.png"))
-        userList.add(User("","BAKA", "https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/anime_spirited_away_no_face_nobody-512.png"))
-        userList.add(User("","BAKA", "https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/anime_spirited_away_no_face_nobody-512.png"))
-        userList.add(User("","BAKA", "https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/anime_spirited_away_no_face_nobody-512.png"))
+    fun getUsersList() {
+        val firebase: FirebaseUser = FirebaseAuth.getInstance().currentUser!!
 
-        val userAdapter = UserAdapter(this@UsersActivity, userList)
-        recycle.adapter = userAdapter
+        val databaseReference: DatabaseReference = FirebaseDatabase.getInstance().getReference("Users")
+
+
+        databaseReference.addValueEventListener(object : ValueEventListener {
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(applicationContext, error.message, Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onDataChange(snapshot: DataSnapshot) {
+                userList.clear()
+
+                for (dataSnapShot: DataSnapshot in snapshot.children) {
+                    val user = dataSnapShot.getValue(User::class.java)
+
+                    if (!user!!.userId.equals(firebase.uid)) {
+
+                        userList.add(user)
+                    }
+                }
+                val recycle = findViewById<RecyclerView>(R.id.userRecyclerView)
+                recycle.layoutManager = LinearLayoutManager(this@UsersActivity)
+
+                val userAdapter = UserAdapter(this@UsersActivity, userList)
+                recycle.adapter = userAdapter
+            }
+        })
     }
 }

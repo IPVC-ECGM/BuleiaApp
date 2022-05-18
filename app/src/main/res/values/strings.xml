@@ -18,4 +18,5 @@
     <string name="action_msg" translatable="false">action_msg</string>
     <string name="PleaseWait">Wait Please</string>
     <string name="useipvc">Use ipvc email</string>
+    <string name="username">Username</string>
 </resources>
