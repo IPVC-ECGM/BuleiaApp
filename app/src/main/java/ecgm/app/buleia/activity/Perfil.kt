@@ -3,21 +3,16 @@ package ecgm.app.buleia.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Layout
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationView
 import ecgm.app.buleia.databinding.ActivityPerfilBinding
 import com.google.firebase.auth.FirebaseAuth
 import android.view.View
-import com.google.android.material.navigation.NavigationBarMenu
-import ecgm.app.buleia.HomeFragment
 import ecgm.app.buleia.R
 
 class Perfil : AppCompatActivity() {
@@ -48,26 +43,36 @@ class Perfil : AppCompatActivity() {
         menu1.setNavigationItemSelectedListener {
             it.isChecked = true
             when(it.itemId){
-                R.id.home -> replaceFragment(HomeFragment(),it.title.toString())
-                R.id.history -> Toast.makeText(applicationContext,"clicked History",Toast.LENGTH_SHORT).show()
-                R.id.notificacao -> Toast.makeText(applicationContext,"clicked notificacao",Toast.LENGTH_SHORT).show()
-                R.id.definicao -> Toast.makeText(applicationContext,"clicked definicao",Toast.LENGTH_SHORT).show()
+                R.id.home -> {
+                    val intent = Intent(this, HomeActivity::class.java)
+                    startActivity(intent)
+                    finish()
+
+                }
+                R.id.history -> {
+                    val intent = Intent(this, HistoryActivity::class.java)
+                    startActivity(intent)
+                    finish()
+
+
+                }
+                R.id.notificacao -> {
+                    val intent = Intent(this, NotificationsActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }
+                R.id.definicao -> {
+                    val intent = Intent(this, SettingsActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }
+
             }
             true
         }
 
         firebaseAuth = FirebaseAuth.getInstance()
         checkUser()
-    }
-
-    private  fun replaceFragment(fragment: Fragment, title:String){
-        val fragmentManager = supportFragmentManager
-        val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.frame,fragment)
-        fragmentTransaction.commit()
-        drawerLayout.closeDrawers()
-        setTitle(title)
-
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

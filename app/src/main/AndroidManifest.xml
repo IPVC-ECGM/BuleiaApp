@@ -12,6 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BuleiaApp">
         <activity
+            android:name=".activity.SettingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.NotificationsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.HistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.HomeActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.UsersActivity"
             android:exported="false" />
         <activity
