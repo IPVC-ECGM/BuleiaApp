@@ -20,4 +20,6 @@
     <string name="useipvc">Use ipvc email</string>
     <string name="username">Username</string>
     <string name="btn_save">Change Image</string>
+    <string name="btn_name">Change Name</string>
+
 </resources>

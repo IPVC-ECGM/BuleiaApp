@@ -74,10 +74,11 @@
 
             <EditText
                 android:id="@+id/etUserName"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:maxLines="1"
+                android:background="@color/primary_text"
                 android:textAlignment="center"
                 android:textSize="20sp"
                 tools:text="@string/username" />
@@ -90,6 +91,17 @@
                 android:layout_marginEnd="2dp"
                 android:background="@color/primary_dark"
                 android:text="@string/btn_save"
+                android:textColor="@color/primary_text"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btnName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:layout_marginEnd="2dp"
+                android:background="@color/primary_dark"
+                android:text="@string/btn_name"
                 android:textColor="@color/primary_text"
                 android:visibility="gone" />
 

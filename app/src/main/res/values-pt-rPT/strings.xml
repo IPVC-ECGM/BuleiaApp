@@ -19,4 +19,5 @@
     <string name="useipvc">Use um e-mail do ipvc</string>
     <string name="username">Nome de utilizador</string>
     <string name="btn_save">Mudar Imagem</string>
+    <string name="btn_name">Mudar o Nome</string>
 </resources>

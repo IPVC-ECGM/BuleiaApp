@@ -68,7 +68,14 @@ class SettingsActivity : AppCompatActivity() {
 
         btnSave.setOnClickListener {
             uploadImage()
-            progressBar.visibility = View.VISIBLE
+        }
+
+        btnName.setOnClickListener {
+            changeName()
+        }
+
+        etUserName.setOnClickListener {
+            btnName.visibility = View.VISIBLE
         }
     }
 
@@ -77,6 +84,18 @@ class SettingsActivity : AppCompatActivity() {
         val intent = Intent(this, ProfileActivity::class.java)
         startActivity(intent)
         finish()
+    }
+
+    private fun changeName() {
+        val userId: String = firebaseUser!!.uid
+        val hashMap:HashMap<String,String> = HashMap()
+
+        databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(userId)
+
+        hashMap.put("userName",etUserName.text.toString())
+        databaseReference.updateChildren(hashMap as Map<String, Any>)
+        Toast.makeText(applicationContext, "Name Changed", Toast.LENGTH_SHORT).show()
+        btnName.visibility = View.GONE
     }
 
     private fun chooseImage() {
@@ -98,6 +117,7 @@ class SettingsActivity : AppCompatActivity() {
                 e.printStackTrace()
             }
         }
+
     }
 
     private fun uploadImage() {

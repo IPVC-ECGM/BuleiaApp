@@ -8,6 +8,7 @@
     android:background="@color/primary_text">
 
     <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/userImage"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:src="@drawable/buleia" />
