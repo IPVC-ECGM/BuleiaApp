@@ -19,4 +19,5 @@
     <string name="PleaseWait">Wait Please</string>
     <string name="useipvc">Use ipvc email</string>
     <string name="username">Username</string>
+    <string name="btn_save">Change Image</string>
 </resources>

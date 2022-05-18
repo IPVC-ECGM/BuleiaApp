@@ -3,21 +3,27 @@ package ecgm.app.buleia.activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.ActionBar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import ecgm.app.buleia.adapter.UserAdapter
 import ecgm.app.buleia.model.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 import ecgm.app.buleia.R
+import kotlinx.android.synthetic.main.activity_settings.*
 
 class UsersActivity : AppCompatActivity() {
+    private lateinit var actionBar: ActionBar
     var userList = ArrayList<User>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_users)
+        actionBar = supportActionBar!!
+        actionBar.title = "Messages"
 
         getUsersList()
     }
@@ -35,6 +41,13 @@ class UsersActivity : AppCompatActivity() {
 
             override fun onDataChange(snapshot: DataSnapshot) {
                 userList.clear()
+
+//                val currentUser = snapshot.getValue(User::class.java)
+//                if (currentUser!!.profileImage == "") {
+//                    userImage.setImageResource(R.drawable.profile_image)
+//                } else {
+//                    Glide.with(this@UsersActivity).load(currentUser.profileImage).into(userImage)
+//                }
 
                 for (dataSnapShot: DataSnapshot in snapshot.children) {
                     val user = dataSnapShot.getValue(User::class.java)

@@ -15,7 +15,7 @@ import com.google.firebase.auth.FirebaseAuth
 import android.view.View
 import ecgm.app.buleia.R
 
-class Perfil : AppCompatActivity() {
+class ProfileActivity : AppCompatActivity() {
 
     private lateinit var toggle: ActionBarDrawerToggle
     private lateinit var drawerLayout: DrawerLayout
@@ -47,14 +47,16 @@ class Perfil : AppCompatActivity() {
                     val intent = Intent(this, HomeActivity::class.java)
                     startActivity(intent)
                     finish()
-
+                }
+                R.id.profile -> {
+                    val intent = Intent(this, ProfileActivity::class.java)
+                    startActivity(intent)
+                    finish()
                 }
                 R.id.history -> {
                     val intent = Intent(this, HistoryActivity::class.java)
                     startActivity(intent)
                     finish()
-
-
                 }
                 R.id.notificacao -> {
                     val intent = Intent(this, NotificationsActivity::class.java)

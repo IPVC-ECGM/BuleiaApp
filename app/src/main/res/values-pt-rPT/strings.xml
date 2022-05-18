@@ -18,4 +18,5 @@
     <string name="PleaseWait">Espere Por Favor</string>
     <string name="useipvc">Use um e-mail do ipvc</string>
     <string name="username">Nome de utilizador</string>
+    <string name="btn_save">Mudar Imagem</string>
 </resources>
