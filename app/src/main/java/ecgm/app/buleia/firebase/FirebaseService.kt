@@ -56,6 +56,7 @@ class FirebaseService : FirebaseMessagingService() {
             .setContentText(p0.data["message"])
             .setSmallIcon(R.drawable.ic_baseline_notifications_24)
             .setAutoCancel(true)
+            .setVibrate(longArrayOf(1000,1000,1000,1000))
             .setContentIntent(pendingIntent)
             .build()
 
@@ -69,7 +70,7 @@ class FirebaseService : FirebaseMessagingService() {
         val channel = NotificationChannel(CHANNEL_ID,channelName,IMPORTANCE_HIGH).apply {
             description="MY FIREBASE CHAT DESCRIPTION"
             enableLights(true)
-            lightColor = Color.WHITE
+            lightColor = Color.MAGENTA
         }
         notificationManager.createNotificationChannel(channel)
 

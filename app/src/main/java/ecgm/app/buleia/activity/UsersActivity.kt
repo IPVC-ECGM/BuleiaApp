@@ -41,18 +41,6 @@ class UsersActivity : AppCompatActivity() {
 
         userRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
 
-//        imgBack.setOnClickListener {
-//            onBackPressed()
-//        }
-//
-//        imgProfile.setOnClickListener {
-//            val intent = Intent(
-//                this@UsersActivity,
-//                ProfileActivity::class.java
-//            )
-//            startActivity(intent)
-//        }
-
         getUsersList()
     }
 
