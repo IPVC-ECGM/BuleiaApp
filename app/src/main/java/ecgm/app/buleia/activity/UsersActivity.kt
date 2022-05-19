@@ -41,17 +41,17 @@ class UsersActivity : AppCompatActivity() {
 
         userRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
 
-        imgBack.setOnClickListener {
-            onBackPressed()
-        }
-
-        imgProfile.setOnClickListener {
-            val intent = Intent(
-                this@UsersActivity,
-                ProfileActivity::class.java
-            )
-            startActivity(intent)
-        }
+//        imgBack.setOnClickListener {
+//            onBackPressed()
+//        }
+//
+//        imgProfile.setOnClickListener {
+//            val intent = Intent(
+//                this@UsersActivity,
+//                ProfileActivity::class.java
+//            )
+//            startActivity(intent)
+//        }
 
         getUsersList()
     }
@@ -73,12 +73,12 @@ class UsersActivity : AppCompatActivity() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 userList.clear()
 
-                val currentUser = snapshot.getValue(User::class.java)
-                if (currentUser!!.profileImage == "") {
-                    userImage.setImageResource(R.drawable.profile_image)
-                } else {
-                    Glide.with(this@UsersActivity).load(currentUser.profileImage).into(userImage)
-                }
+//                val currentUser = snapshot.getValue(User::class.java)
+//                if (currentUser!!.profileImage == "") {
+//                    userImage.setImageResource(R.drawable.profile_image)
+//                } else {
+//                    Glide.with(this@UsersActivity).load(currentUser.profileImage).into(userImage)
+//                }
 
                 for (dataSnapShot: DataSnapshot in snapshot.children) {
                     val user = dataSnapShot.getValue(User::class.java)
