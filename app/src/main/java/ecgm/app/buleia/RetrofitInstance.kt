@@ -1,6 +1,5 @@
 package ecgm.app.buleia
 
-import android.provider.SyncStateContract
 import ecgm.app.buleia.Constants.Constants
 import ecgm.app.buleia.`interface`.NotificationApi
 import retrofit2.Retrofit

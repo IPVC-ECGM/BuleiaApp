@@ -2,7 +2,6 @@ package ecgm.app.buleia.activity
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.LinearLayout
@@ -10,7 +9,6 @@ import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import ecgm.app.buleia.adapter.UserAdapter
 import ecgm.app.buleia.model.User
 import com.google.firebase.auth.FirebaseAuth
@@ -19,8 +17,6 @@ import com.google.firebase.database.*
 import com.google.firebase.messaging.FirebaseMessaging
 import ecgm.app.buleia.R
 import ecgm.app.buleia.firebase.FirebaseService
-import kotlinx.android.synthetic.main.activity_chat.*
-import kotlinx.android.synthetic.main.activity_settings.*
 import kotlinx.android.synthetic.main.activity_users.*
 
 class UsersActivity : AppCompatActivity() {
