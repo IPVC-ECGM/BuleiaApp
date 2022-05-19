@@ -6,14 +6,12 @@ import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import ecgm.app.buleia.adapter.UserAdapter
 import ecgm.app.buleia.model.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 import ecgm.app.buleia.R
-import kotlinx.android.synthetic.main.activity_settings.*
 
 class UsersActivity : AppCompatActivity() {
     private lateinit var actionBar: ActionBar
