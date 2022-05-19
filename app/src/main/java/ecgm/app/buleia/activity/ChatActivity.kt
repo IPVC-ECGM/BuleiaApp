@@ -1,7 +1,9 @@
 package ecgm.app.buleia.activity
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -9,11 +11,18 @@ import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
+import com.google.gson.Gson
 import ecgm.app.buleia.R
+import ecgm.app.buleia.RetrofitInstance
 import ecgm.app.buleia.adapter.ChatAdapter
 import ecgm.app.buleia.model.Chat
+import ecgm.app.buleia.model.NotificationData
+import ecgm.app.buleia.model.PushNotification
 import ecgm.app.buleia.model.User
 import kotlinx.android.synthetic.main.activity_chat.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class ChatActivity : AppCompatActivity() {
     var firebaseUser: FirebaseUser? = null
@@ -21,6 +30,7 @@ class ChatActivity : AppCompatActivity() {
     var chatList = ArrayList<Chat>()
     var topic = ""
 
+    @SuppressLint("WrongConstant")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chat)
@@ -66,11 +76,12 @@ class ChatActivity : AppCompatActivity() {
             } else {
                 sendMessage(firebaseUser!!.uid, userId, message)
                 etMessage.setText("")
-//                topic = "/topics/$userId"
-//                PushNotification(NotificationData( userName!!,message),
-//                    topic).also {
-//                    sendNotification(it)
-//                }
+                topic = "/topics/$userId"
+                PushNotification(
+                    NotificationData( userName!!,message),
+                    topic).also {
+                    sendNotification(it)
+                }
             }
         }
 
@@ -115,5 +126,18 @@ class ChatActivity : AppCompatActivity() {
                 chatRecyclerView.adapter = chatAdapter
             }
         })
+    }
+
+    private fun sendNotification(notification: PushNotification) = CoroutineScope(Dispatchers.IO).launch {
+        try {
+            val response = RetrofitInstance.api.postNotification(notification)
+            if(response.isSuccessful) {
+                Log.d("TAG", "Response: ${Gson().toJson(response)}")
+            } else {
+                Log.e("TAG", response.errorBody()!!.string())
+            }
+        } catch(e: Exception) {
+            Log.e("TAG", e.toString())
+        }
     }
 }
