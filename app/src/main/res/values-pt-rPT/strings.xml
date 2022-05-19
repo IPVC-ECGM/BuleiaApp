@@ -22,4 +22,9 @@
     <string name="btn_name">Mudar o Nome</string>
     <string name="type_message">Escreva a sua mensagem</string>
     <string name="btn_send">Enviar Mensagem</string>
+    <string name="where_to">Para onde?</string>
+    <string name="Districts">Destrito</string>
+    <string name="submit">Procurar</string>
+    <string name="city">Cidade</string>
+    <string name="title">Titulo</string>
 </resources>

@@ -13,111 +13,24 @@ import com.google.android.material.navigation.NavigationView
 import ecgm.app.buleia.databinding.ActivityPerfilBinding
 import com.google.firebase.auth.FirebaseAuth
 import android.view.View
+import android.widget.Button
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import ecgm.app.buleia.R
 
 class ProfileActivity : AppCompatActivity() {
-
-    private lateinit var toggle: ActionBarDrawerToggle
-    private lateinit var drawerLayout: DrawerLayout
-
     private lateinit var binding: ActivityPerfilBinding
-    private lateinit var actionBar: ActionBar
-    private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPerfilBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        actionBar = supportActionBar!!
-        actionBar.title = "Profile"
+        supportActionBar?.hide()
 
-        drawerLayout = findViewById(R.id.drawerlayout)
-        val menu1 : NavigationView = findViewById(R.id.menu_1)
-
-        toggle = ActionBarDrawerToggle(this,drawerLayout, R.string.open, R.string.close)
-        drawerLayout.addDrawerListener(toggle)
-        toggle.syncState()
-
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-        menu1.setNavigationItemSelectedListener {
-            it.isChecked = true
-            when(it.itemId){
-                R.id.home -> {
-                    val intent = Intent(this, HomeActivity::class.java)
-                    startActivity(intent)
-                    finish()
-                }
-                R.id.profile -> {
-                    val intent = Intent(this, ProfileActivity::class.java)
-                    startActivity(intent)
-                    finish()
-                }
-                R.id.history -> {
-                    val intent = Intent(this, HistoryActivity::class.java)
-                    startActivity(intent)
-                    finish()
-                }
-                R.id.notificacao -> {
-                    val intent = Intent(this, NotificationsActivity::class.java)
-                    startActivity(intent)
-                    finish()
-                }
-                R.id.definicao -> {
-                    val intent = Intent(this, SettingsActivity::class.java)
-                    startActivity(intent)
-                    finish()
-                }
-
-            }
-            true
-        }
-
-        firebaseAuth = FirebaseAuth.getInstance()
-        checkUser()
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val id = item.itemId
-
-        if(toggle.onOptionsItemSelected(item)){
-            return true
-        }
-
-        if (id == R.id.action_msg) {
-
-            val intent = Intent(this, UsersActivity::class.java)
-            this.startActivity(intent)
-            return true
-        }
-
-        return super.onOptionsItemSelected(item)
+    fun button1(view: View) {
+        val intent = Intent(this, HomeActivity::class.java)
+        startActivity(intent)
+        finish()
     }
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        val inflater: MenuInflater = menuInflater
-        inflater.inflate(R.menu.top_chat, menu)
-        return true
-    }
-
-    private fun checkUser() {
-        //Verificar se o utilizador está logado
-        val firebaseUser = firebaseAuth.currentUser
-
-        if(firebaseUser!= null){
-            val email = firebaseUser.email
-            //Colocar email atual na text view
-            //binding.
-        }else {
-            startActivity(Intent(this, LoginActivity::class.java))
-            finish()
-        }
-    }
-
-    fun logoutClick(view: View) {
-        firebaseAuth.signOut()
-        checkUser()
-    }
-
-
 }

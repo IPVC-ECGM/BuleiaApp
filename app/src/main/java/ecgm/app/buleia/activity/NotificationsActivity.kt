@@ -14,7 +14,7 @@ class NotificationsActivity : AppCompatActivity() {
     }
 
     fun button1(view: View) {
-        val intent = Intent(this, ProfileActivity::class.java)
+        val intent = Intent(this, HomeActivity::class.java)
         startActivity(intent)
         finish()
     }
