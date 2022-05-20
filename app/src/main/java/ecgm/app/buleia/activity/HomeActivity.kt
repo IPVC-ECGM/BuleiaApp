@@ -7,25 +7,33 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
-import android.widget.Button
+import android.widget.*
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
 import ecgm.app.buleia.R
+import ecgm.app.buleia.`interface`.FirebaseLoadContry
+import ecgm.app.buleia.model.Country
+import kotlinx.android.synthetic.main.activity_home.*
+import kotlinx.android.synthetic.main.item_bottom_sheet.view.*
+import java.lang.ref.Reference
+import java.util.ArrayList
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity(), FirebaseLoadContry {
     private lateinit var toggle: ActionBarDrawerToggle
     private lateinit var actionBar: ActionBar
     private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var databaseReference: DatabaseReference
+    private lateinit var firebaseLoadContry: FirebaseLoadContry
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-
         actionBar = supportActionBar!!
         actionBar.title = "Home"
 
@@ -72,19 +80,27 @@ class HomeActivity : AppCompatActivity() {
             }
             true
         }
+        //Init Interface Country
+        firebaseLoadContry = this
+
+        //Init DataBase for Coutry
+        databaseReference = FirebaseDatabase.getInstance().getReference("country");
+
+        //Load Data Country
+        databaseReference.addValueEventListener(object:ValueEventListener{
+            var countryList:MutableList<Country> = ArrayList<Country>()
+            override fun onCancelled(error: DatabaseError) {
+                firebaseLoadContry.onFirebaseLoadFailed(error.message)
+            }
+            override fun onDataChange(snapshot: DataSnapshot) {
+                for (CountrySnapShot in snapshot.children)
+                    countryList.add(CountrySnapShot.getValue<Country>(Country::class.java!!)!!)
+                firebaseLoadContry.onFirebaseLoadSuccess(countryList)
+            }
+        })
 
         firebaseAuth = FirebaseAuth.getInstance()
         checkUser()
-
-        val btnShow: Button = findViewById<Button?>(R.id.btnShow)
-
-        btnShow.setOnClickListener{
-            val view = layoutInflater.inflate(R.layout.item_bottom_sheet,null)
-            val dialog = BottomSheetDialog(this)
-            dialog.setContentView(view)
-            dialog.show()
-        }
-
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -129,4 +145,23 @@ class HomeActivity : AppCompatActivity() {
         checkUser()
     }
 
+    override fun onFirebaseLoadSuccess(countryList: List<Country>) {
+        //Get all names from list
+        val country_name = getCoutryNameList(countryList)
+        //Adapter
+        val adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, country_name)
+        spinner_from.adapter = adapter
+        spinner_to.adapter = adapter
+    }
+
+    private fun getCoutryNameList(countryList: List<Country>): List<String> {
+        val result = ArrayList<String>()
+        for (Country in countryList)
+            result.add(Country.name!!)
+        return result
+    }
+
+    override fun onFirebaseLoadFailed(message: String) {
+        TODO("Not yet implemented")
+    }
 }

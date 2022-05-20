@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/accent"
+    android:id="@+id/spinnerSS"
+    tools:context=".activity.HomeActivity">
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -33,28 +37,30 @@
             android:focusableInTouchMode="true"/>
 
         <Spinner
-            android:id="@+id/spinner_city"
+            android:id="@+id/spinner_from"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:spinnerMode="dialog"
             android:layout_marginTop="10dp"
             android:layout_below="@id/textView_city"/>
 
         <TextView
+            android:id="@+id/textView_districts"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/textView_districts"
-            android:layout_below="@+id/spinner_city"
+            android:layout_below="@+id/spinner_from"
             android:layout_marginTop="30dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
             android:padding="6dp"
             android:text="@string/Districts"
-            android:textColor="@color/primary_dark"
-            android:focusable="true"
-            android:focusableInTouchMode="true"/>
+            android:textColor="@color/primary_dark" />
 
         <Spinner
-            android:id="@+id/spinner_districts"
+            android:id="@+id/spinner_to"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:spinnerMode="dialog"
             android:layout_below="@id/textView_districts"
             android:layout_marginTop="10dp" />
 
@@ -62,7 +68,7 @@
             android:id="@+id/button_submit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/spinner_districts"
+            android:layout_below="@id/spinner_to"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="50dp"
             android:paddingLeft="40dp"
