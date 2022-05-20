@@ -1,20 +1,12 @@
 package ecgm.app.buleia.activity
 
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
-import androidx.appcompat.app.ActionBar
-import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.drawerlayout.widget.DrawerLayout
-import com.google.android.material.navigation.NavigationView
 import ecgm.app.buleia.databinding.ActivityPerfilBinding
-import com.google.firebase.auth.FirebaseAuth
 import android.view.View
-import android.widget.Button
-import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.mikhaellopez.circularprogressbar.CircularProgressBar
 import ecgm.app.buleia.R
 
 class ProfileActivity : AppCompatActivity() {
@@ -26,6 +18,14 @@ class ProfileActivity : AppCompatActivity() {
         setContentView(binding.root)
         supportActionBar?.hide()
 
+        val circularProgressBar = findViewById<CircularProgressBar>(R.id.circularProgressBar)
+            circularProgressBar.apply {
+                progressMax = 100f
+                setProgressWithAnimation(50f, 1000)
+                progressBarWidth = 5f
+                backgroundProgressBarWidth = 7f
+                progressBarColor = Color.GREEN
+            }!!
     }
 
     fun button1(view: View) {

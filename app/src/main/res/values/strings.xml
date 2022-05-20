@@ -28,5 +28,6 @@
     <string name="submit">Submit</string>
     <string name="city">City</string>
     <string name="title">Title</string>
+    <string name="phoneNumber" >Phone Number</string>
 
 </resources>
