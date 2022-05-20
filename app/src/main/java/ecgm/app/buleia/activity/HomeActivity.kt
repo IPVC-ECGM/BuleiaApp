@@ -31,6 +31,7 @@ class HomeActivity : AppCompatActivity(), FirebaseLoadContry {
     private lateinit var firebaseLoadContry: FirebaseLoadContry
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
