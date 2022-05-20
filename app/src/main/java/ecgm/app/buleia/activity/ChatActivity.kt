@@ -30,6 +30,7 @@ class ChatActivity : AppCompatActivity() {
     var chatList = ArrayList<Chat>()
     var topic = ""
 
+
     @SuppressLint("WrongConstant")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
