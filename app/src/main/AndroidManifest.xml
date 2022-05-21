@@ -18,7 +18,13 @@
             android:exported="false" />
         <activity
             android:name=".activity.MainActivity"
-            android:exported="false" />
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <service
             android:name=".firebase.FirebaseService"
@@ -62,13 +68,7 @@
         <activity
             android:name=".activity.SplashScreen"
             android:exported="true"
-            android:noHistory="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:noHistory="true"/>
     </application>
 
 </manifest>

@@ -29,5 +29,7 @@
     <string name="city">City</string>
     <string name="title">Title</string>
     <string name="phoneNumber">Phone Number</string>
+    <string name="preference_file_key">file01</string>
+    <string name="splash_key">splashScreenIsEnabled</string>
 
 </resources>

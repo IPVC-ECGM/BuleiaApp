@@ -28,4 +28,7 @@
     <string name="city">Cidade</string>
     <string name="title">Titulo</string>
     <string name="phoneNumber">Telem�vel</string>
+    <string name="country_names">Nomes Paises</string>
+    <string name="preference_file_key">ficheiro01</string>
+    <string name="splash_key">Splash está ativo</string>
 </resources>

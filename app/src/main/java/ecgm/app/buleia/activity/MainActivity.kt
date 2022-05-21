@@ -1,10 +1,13 @@
 package ecgm.app.buleia.activity
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import ecgm.app.buleia.Constants.Constants
 import ecgm.app.buleia.R
 
 class MainActivity : AppCompatActivity() {
@@ -12,18 +15,21 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         supportActionBar?.hide()
+        val sharedPref: SharedPreferences = getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE)
+        val shared = sharedPref.getBoolean(getString(R.string.splash_key), false)
 
-        Handler(Looper.getMainLooper()).postDelayed({
+        if(shared == true) {
+            Handler(Looper.getMainLooper()).postDelayed({
                 // Your Code
                 val intent = Intent(this@MainActivity, SplashScreen::class.java)
                 startActivity(intent)
-        }, 0)
-
-        Handler(Looper.getMainLooper()).postDelayed({
-            // Your Code
-            val intent = Intent(this@MainActivity, SplashScreenComplete::class.java)
-            startActivity(intent)
-        }, 0)
-
+            }, 0)
+        }else {
+            Handler(Looper.getMainLooper()).postDelayed({
+                // Your Code
+                val intent = Intent(this@MainActivity, SplashScreenComplete::class.java)
+                startActivity(intent)
+            }, 0)
+        }
     }
 }
