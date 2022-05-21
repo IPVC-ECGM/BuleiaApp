@@ -45,7 +45,7 @@ class LoginActivity : AppCompatActivity() {
 
         progressDialog = ProgressDialog(this)
         progressDialog.setTitle("Please Wait")
-        progressDialog.setMessage("Logginf in...")
+        progressDialog.setMessage("Logging in...")
         progressDialog.setCanceledOnTouchOutside(false)
 
         firebaseAuth = FirebaseAuth.getInstance()
@@ -101,13 +101,13 @@ class LoginActivity : AppCompatActivity() {
                 progressDialog.dismiss()
                 //Buscar info do utilizador
                 val firebaseUser = firebaseAuth.currentUser
-                val emailVerified: Boolean = firebaseUser!!.isEmailVerified()
+                val emailVerified: Boolean = firebaseUser!!.isEmailVerified
 
-                if(emailVerified != true){
+                if(!emailVerified){
                    // Toast.makeText(this, "$emailVerified", Toast.LENGTH_SHORT).show()
                     Toast.makeText(this, "Email not verified", Toast.LENGTH_SHORT).show()
                 }else {
-                    val email = firebaseUser!!.email
+                    val email = firebaseUser.email
                     Toast.makeText(this, "Login as $email", Toast.LENGTH_SHORT).show()
                     //Abrir Pagina do utilizador
                     startActivity(Intent(this, HomeActivity::class.java))
