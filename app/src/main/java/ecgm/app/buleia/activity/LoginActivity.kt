@@ -27,6 +27,7 @@ class LoginActivity : AppCompatActivity() {
     //Progresso
     private lateinit var progressDialog: ProgressDialog
 
+
     //Firebase autenticação
     private lateinit var firebaseAuth: FirebaseAuth
     private var email=""
