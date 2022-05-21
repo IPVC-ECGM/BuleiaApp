@@ -25,9 +25,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         supportActionBar?.hide()
 
-        val saved = false;
+        val sharedPreferences = getSharedPreferences("shared", Context.MODE_PRIVATE)
+        val savedBoolean = sharedPreferences.getBoolean("BOOLEAN_KEY", false)
 
-        if(saved == false) {
+        if(savedBoolean == true) {
                 // Your Code
                 val intent = Intent(this@MainActivity, SplashScreen::class.java)
                 intent.putExtra("shared", true)
