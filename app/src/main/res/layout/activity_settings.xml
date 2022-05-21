@@ -133,6 +133,10 @@
         android:onClick="switch_button"
         android:switchMinWidth="50dp"
         android:textColor="@color/primary_dark"
+        android:textSize="20dp"
+        android:trackTint="@drawable/newtrack"
+        android:thumbTint="@drawable/newthumb"
+
     />
     </LinearLayout>
 </LinearLayout>
