@@ -41,10 +41,10 @@ class LoginActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         actionBar = supportActionBar!!
-        actionBar.title="@string/login"
+        actionBar.title="@string/login_name"
 
         progressDialog = ProgressDialog(this)
-        progressDialog.setTitle("Please Wait")
+        progressDialog.setTitle("@string/PleaseWait")
         progressDialog.setMessage("Logging in...")
         progressDialog.setCanceledOnTouchOutside(false)
 
