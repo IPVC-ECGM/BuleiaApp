@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("shared", true)
                 startActivity(intent)
             }, 0)
-        }else {
+        }else{
             Handler(Looper.getMainLooper()).postDelayed({
                 // Your Code
                 val intent = Intent(this@MainActivity, SplashScreenComplete::class.java)

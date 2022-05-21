@@ -156,7 +156,7 @@ class SettingsActivity : AppCompatActivity() {
     fun onCheckboxClicked(view: View) {
         if (view is CheckBox) {
 
-            when (view.id) {
+  /*          when (view.id) {
                 R.id.checkbox_SplashScreen -> {
                     if ( == true) {
                         //Normal SplashScreen
@@ -168,7 +168,7 @@ class SettingsActivity : AppCompatActivity() {
                         toast.show()
                     }
                 }
-            }
+            }*/
         }
     }
 }
