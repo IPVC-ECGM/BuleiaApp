@@ -44,7 +44,7 @@ class UserAdapter(private val context: Context, private val userList: ArrayList<
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         val txtUserName:TextView = view.findViewById(R.id.userName)
-        val txtTemp:TextView = view.findViewById(R.id.temp)
+//        val txtTemp:TextView = view.findViewById(R.id.temp)
         val imgUser:CircleImageView = view.findViewById(R.id.userImage)
         val layoutUser:LinearLayout = view.findViewById(R.id.layoutUser)
     }

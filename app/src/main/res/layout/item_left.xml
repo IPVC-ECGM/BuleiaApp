@@ -11,6 +11,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_marginEnd="50dp"
         android:orientation="horizontal">
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -25,13 +27,18 @@
         <TextView
             android:id="@+id/tvMessage"
             android:layout_width="wrap_content"
+            android:maxWidth="230dp"
             android:layout_height="wrap_content"
-            android:padding="5dp"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20sp"
             android:layout_marginTop="5dp"
             android:textColor="@color/primary_text"
             android:background="@drawable/item_left_side"
             android:textSize="16sp"
-            tools:text="Text" />
+            tools:text="Text"
+            tools:ignore="RtlSymmetry" />
 
 
 
