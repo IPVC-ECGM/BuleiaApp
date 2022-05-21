@@ -12,6 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="end"
+        android:layout_marginStart="50dp"
+        android:padding="10dp"
         android:orientation="horizontal">
 
 
@@ -19,8 +21,12 @@
         <TextView
             android:id="@+id/tvMessage"
             android:layout_width="wrap_content"
+            android:maxWidth="230dp"
             android:layout_height="wrap_content"
-            android:padding="5dp"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20sp"
             android:layout_marginTop="5dp"
             android:textColor="@color/primary_text"
             android:background="@drawable/item_right_side"
@@ -28,7 +34,6 @@
             tools:text="Text" />
 
         <de.hdodenhof.circleimageview.CircleImageView
-            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/userImage"
             android:layout_width="30dp"
             android:layout_height="30dp"
@@ -36,9 +41,5 @@
             android:layout_marginEnd="10dp"
             android:src="@mipmap/ic_launcher" />
 
-
-
     </LinearLayout>
-
-
 </LinearLayout>
