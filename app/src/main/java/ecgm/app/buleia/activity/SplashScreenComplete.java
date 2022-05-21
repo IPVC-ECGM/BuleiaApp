@@ -19,7 +19,7 @@ import ecgm.app.buleia.R;
 public class SplashScreenComplete extends AppCompatActivity {
 
     LottieAnimationView lottieAnimationView;
-    ImageView nome;
+
 
 
     @Override
@@ -31,9 +31,8 @@ public class SplashScreenComplete extends AppCompatActivity {
 
 
         lottieAnimationView = findViewById(R.id.lottie);
-        nome = findViewById(R.id.nome);
-        lottieAnimationView.animate().setDuration(10000).setStartDelay(1000);
-        nome.animate().setDuration(1000).setStartDelay(6000);
+        lottieAnimationView.animate().setDuration(8500);
+
         View decorView = getWindow().getDecorView();
 
     //Esconder barra de navegação nativa do android
