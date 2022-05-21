@@ -13,14 +13,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BuleiaApp">
-        <service android:name=".firebase.FirebaseService"
-            android:permission="com.google.android.c2dm.permission.SEND"
-            android:exported="true">
+        <activity
+            android:name=".activity.SplashScreenComplete"
+            android:exported="false" />
+        <activity
+            android:name=".activity.MainActivity"
+            android:exported="false" />
+
+        <service
+            android:name=".firebase.FirebaseService"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
             </intent-filter>
         </service>
+
         <activity
             android:name=".activity.ChatActivity"
             android:exported="false" />
