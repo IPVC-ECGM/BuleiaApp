@@ -8,6 +8,10 @@ import android.os.Looper
 import ecgm.app.buleia.R
 
 class SplashScreenComplete : AppCompatActivity() {
+
+
+    LottieAnimationView lottieAnimationView;
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen_complete)
@@ -15,6 +19,7 @@ class SplashScreenComplete : AppCompatActivity() {
         //Esconder Barra do menu
         supportActionBar?.hide()
 
+        windowManager().setFlags
         Handler(Looper.getMainLooper()).postDelayed({
             // Your Code
             val intent = Intent(this@SplashScreenComplete, LoginActivity::class.java)
