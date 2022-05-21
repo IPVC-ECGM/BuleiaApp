@@ -45,10 +45,6 @@ class SettingsActivity : AppCompatActivity() {
 
         //shared Preferences
 
-
-
-
-
         firebaseUser = FirebaseAuth.getInstance().currentUser!!
 
         databaseReference =
@@ -160,17 +156,14 @@ class SettingsActivity : AppCompatActivity() {
     fun onCheckboxClicked(view: View) {
         if (view is CheckBox) {
 
-
             when (view.id) {
                 R.id.checkbox_SplashScreen -> {
                     if ( == true) {
                         //Normal SplashScreen
-                        Constants.SpashScreenIsEnabled = false
                         val toast = Toast.makeText(applicationContext, "Splash Screen Activated", Toast.LENGTH_SHORT)
                         toast.show()
                     } else {
-                        //Small Splashscreen
-                        Constants.SpashScreenIsEnabled = true
+                        //Small SplashScreen
                         val toast = Toast.makeText(applicationContext, "Splash Screen Deactivated", Toast.LENGTH_SHORT)
                         toast.show()
                     }

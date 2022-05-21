@@ -14,14 +14,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BuleiaApp">
         <activity
+            android:name=".activity.teste1"
+            android:exported="false" />
+        <activity
             android:name=".activity.SplashScreenComplete"
             android:exported="false" />
         <activity
             android:name=".activity.MainActivity"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -68,7 +71,7 @@
         <activity
             android:name=".activity.SplashScreen"
             android:exported="true"
-            android:noHistory="true"/>
+            android:noHistory="true" />
     </application>
 
 </manifest>

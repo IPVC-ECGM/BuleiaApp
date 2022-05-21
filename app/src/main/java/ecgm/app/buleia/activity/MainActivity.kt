@@ -16,18 +16,20 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         supportActionBar?.hide()
         val sharedPref: SharedPreferences = getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE)
-        val shared = sharedPref.getBoolean(getString(R.string.splash_key), false)
+        val shared = sharedPref.getBoolean(getString(R.string.splash_key), true)
 
-        if(shared == true) {
+        if(shared == false) {
             Handler(Looper.getMainLooper()).postDelayed({
                 // Your Code
                 val intent = Intent(this@MainActivity, SplashScreen::class.java)
+                intent.putExtra("shared", true)
                 startActivity(intent)
             }, 0)
         }else {
             Handler(Looper.getMainLooper()).postDelayed({
                 // Your Code
                 val intent = Intent(this@MainActivity, SplashScreenComplete::class.java)
+                intent.putExtra("shared", false)
                 startActivity(intent)
             }, 0)
         }
