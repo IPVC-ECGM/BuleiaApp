@@ -66,7 +66,7 @@ class HomeActivity : AppCompatActivity(), FirebaseLoadContry {
                     startActivity(intent)
                     finish()
                 }
-                R.id.notificacao -> {
+                R.id.notification -> {
                     val intent = Intent(this, NotificationsActivity::class.java)
                     startActivity(intent)
                     finish()

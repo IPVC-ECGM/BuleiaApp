@@ -8,21 +8,20 @@
         <item
             android:id="@+id/home"
             android:title="Home"
-            android:icon="@drawable/ic_baseline_home_24"
+            android:icon="@drawable/home_car"
             />
         <item
             android:id="@+id/profile"
             android:title="Profile"
-            android:icon="@drawable/ic_round_account_circle_24"
-            />
+            android:icon="@drawable/profile_avatar"/>
         <item
             android:id="@+id/history"
             android:title="History"
-            android:icon="@drawable/ic_baseline_history_24"
+            android:icon="@drawable/history_doc"
             />
         <item
-            android:id="@+id/notificacao"
-            android:title="Notifications"
+            android:id="@+id/notification"
+            android:title="@string/notifications"
             android:icon="@drawable/ic_baseline_notifications_24"
             />
         <item

@@ -34,7 +34,6 @@
                         <RelativeLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@color/accent"
                             android:layout_margin="25dp" >
 
                             <TextView
@@ -49,24 +48,24 @@
                                 android:textStyle="bold" />
 
                             <TextView
+                                android:id="@+id/textView_city"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:id="@+id/textView_city"
                                 android:layout_below="@+id/welcome_text"
                                 android:layout_marginTop="30dp"
-                                android:padding="6dp"
-                                android:text="@string/city"
-                                android:textColor="@color/primary_dark"
                                 android:focusable="true"
-                                android:focusableInTouchMode="true"/>
+                                android:focusableInTouchMode="true"
+                                android:padding="6dp"
+                                android:text="@string/From"
+                                android:textColor="@color/primary_dark" />
 
                             <Spinner
                                 android:id="@+id/spinner_from"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:spinnerMode="dialog"
+                                android:layout_below="@id/textView_city"
                                 android:layout_marginTop="10dp"
-                                android:layout_below="@id/textView_city"/>
+                                android:spinnerMode="dialog" />
 
                             <TextView
                                 android:id="@+id/textView_districts"
@@ -77,7 +76,7 @@
                                 android:focusable="true"
                                 android:focusableInTouchMode="true"
                                 android:padding="6dp"
-                                android:text="@string/Districts"
+                                android:text="@string/To"
                                 android:textColor="@color/primary_dark" />
 
                             <Spinner
