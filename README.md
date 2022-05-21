@@ -1,7 +1,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template%22%3E
+  <a>
     <img width="500px" height="500px" src="app/src/main/res/drawable/buleia.png" alt="Logo" width="80" height="80">
   </a>
 </div>
