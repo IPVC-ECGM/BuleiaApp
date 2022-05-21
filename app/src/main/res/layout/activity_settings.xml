@@ -120,14 +120,19 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         >
-    <CheckBox
-        android:id="@+id/checkbox_SplashScreen"
-        android:text="SplashScreen"
+    <Switch
+        android:id="@+id/switch_Splash"
+        android:text="Disable SplashScreen"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:button="@null"
-        android:onClick="onCheckboxClicked"
-        android:drawableRight="?android:attr/listChoiceIndicatorMultiple"/>
+        android:onClick="switch_button"
+        android:switchMinWidth="50dp"
+        android:textColor="@color/primary_dark"
+    />
     </LinearLayout>
 </LinearLayout>

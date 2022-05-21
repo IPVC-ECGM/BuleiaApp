@@ -13,6 +13,7 @@ import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.Toast
 import com.bumptech.glide.Glide
+import com.bumptech.glide.disklrucache.DiskLruCache
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
@@ -43,7 +44,8 @@ class SettingsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_settings)
         supportActionBar?.hide()
 
-        //shared Preferences
+        loadData()
+
 
         firebaseUser = FirebaseAuth.getInstance().currentUser!!
 
@@ -153,12 +155,37 @@ class SettingsActivity : AppCompatActivity() {
         }
     }
 
-    fun onCheckboxClicked(view: View) {
+    private fun saveData(){
+        val sharedPreferences = getSharedPreferences("shared", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.apply{
+            putBoolean("BOOLEAN_KEY", switch_Splash.isChecked)
+        }.apply()
+
+        Toast.makeText(this, "Data saved", Toast.LENGTH_LONG).show()
+    }
+
+    private fun loadData(){
+        val sharedPreferences = getSharedPreferences("shared", Context.MODE_PRIVATE)
+        val savedBoolean = sharedPreferences.getBoolean("BOOLEAN_KEY", switch_Splash.isChecked)
+
+        switch_Splash.isChecked = savedBoolean
+    }
+
+    fun switch_button(view: View) {
+        saveData()
+    }
+
+
+    //Usar para CheckBox
+/*    fun onCheckboxClicked(view: View) {
         if (view is CheckBox) {
 
-  /*          when (view.id) {
+            saveData()
+           when (view.id) {
                 R.id.checkbox_SplashScreen -> {
-                    if ( == true) {
+                    if (shared == true) {
+
                         //Normal SplashScreen
                         val toast = Toast.makeText(applicationContext, "Splash Screen Activated", Toast.LENGTH_SHORT)
                         toast.show()
@@ -168,7 +195,7 @@ class SettingsActivity : AppCompatActivity() {
                         toast.show()
                     }
                 }
-            }*/
+            }
         }
-    }
+    }*/
 }
