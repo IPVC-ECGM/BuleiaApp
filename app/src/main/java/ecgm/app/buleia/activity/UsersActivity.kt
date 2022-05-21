@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import ecgm.app.buleia.adapter.UserAdapter
 import ecgm.app.buleia.model.User
 import com.google.firebase.auth.FirebaseAuth
@@ -17,6 +18,7 @@ import com.google.firebase.database.*
 import com.google.firebase.messaging.FirebaseMessaging
 import ecgm.app.buleia.R
 import ecgm.app.buleia.firebase.FirebaseService
+import kotlinx.android.synthetic.main.activity_chat.*
 import kotlinx.android.synthetic.main.activity_users.*
 
 class UsersActivity : AppCompatActivity() {
@@ -58,24 +60,26 @@ class UsersActivity : AppCompatActivity() {
                 userList.clear()
 
 //                val currentUser = snapshot.getValue(User::class.java)
-//                if (currentUser!!.profileImage == "") {
-//                    userImage.setImageResource(R.drawable.profile_image)
-//                } else {
-//                    Glide.with(this@UsersActivity).load(currentUser.profileImage).into(userImage)
+////                if (currentUser!!.profileImage == ""){
+////                    imgProfile.setImageResource(R.drawable.profile_image)
+////                }else{
+//                if (currentUser != null) {
+//                    Glide.with(this@UsersActivity).load(currentUser.profileImage).into(imgProfile)
 //                }
+////                }
 
                 for (dataSnapShot: DataSnapshot in snapshot.children) {
                     val user = dataSnapShot.getValue(User::class.java)
 
                     if (!user!!.userId.equals(firebase.uid)) {
+
                         userList.add(user)
                     }
                 }
-                val recycle = findViewById<RecyclerView>(R.id.userRecyclerView)
-                recycle.layoutManager = LinearLayoutManager(this@UsersActivity)
 
                 val userAdapter = UserAdapter(this@UsersActivity, userList)
-                recycle.adapter = userAdapter
+
+                userRecyclerView.adapter = userAdapter
             }
         })
     }
