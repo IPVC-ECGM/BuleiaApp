@@ -33,4 +33,6 @@
     <string name="From" >De</string>
     <string name="country_names">Nome das Cidades</string>
     <string name="hello_blank_fragment" translatable="false">Olá</string>
+    <string name="action_msg" translatable="false">Mensagem</string>
+    <string name="action_msg" translatable="false">Mensagem</string>
 </resources>
