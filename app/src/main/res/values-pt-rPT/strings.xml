@@ -32,8 +32,7 @@
     <string name="To" >Para</string>
     <string name="From" >De</string>
     <string name="country_names">Nome das Cidades</string>
-    <string name="hello_blank_fragment" translatable="false">Olá</string>
     <string name="action_msg" translatable="false">Mensagem</string>
-    <string name="action_msg" translatable="false">Mensagem</string>
-    <string name="project_id" translatable="false">buleiatest</string>
+    <string name="please_wait">Aguarda Por Favor</string>
+    <string name="loggingin">A entrar</string>
 </resources>
