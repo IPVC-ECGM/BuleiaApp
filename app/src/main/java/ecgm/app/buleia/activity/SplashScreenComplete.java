@@ -33,7 +33,7 @@ public class SplashScreenComplete extends AppCompatActivity {
         lottieAnimationView = findViewById(R.id.lottie);
         nome = findViewById(R.id.nome);
         lottieAnimationView.animate().setDuration(10000).setStartDelay(1000);
-        nome.animate().translationX(-500).setDuration(1000).setStartDelay(6000);
+        nome.animate().setDuration(1000).setStartDelay(6000);
         View decorView = getWindow().getDecorView();
 
     //Esconder barra de navegação nativa do android
@@ -45,6 +45,6 @@ public class SplashScreenComplete extends AppCompatActivity {
             public void run(){
                startActivity(new Intent(SplashScreenComplete.this, LoginActivity.class));
            }
-        }, 10000);
+        }, 8500);
     }
 }

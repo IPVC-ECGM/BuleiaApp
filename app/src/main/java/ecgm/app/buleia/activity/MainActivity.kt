@@ -19,19 +19,16 @@ class MainActivity : AppCompatActivity() {
         val shared = sharedPref.getBoolean(getString(R.string.splash_key), true)
 
         if(shared == false) {
-            Handler(Looper.getMainLooper()).postDelayed({
                 // Your Code
                 val intent = Intent(this@MainActivity, SplashScreen::class.java)
                 intent.putExtra("shared", true)
                 startActivity(intent)
-            }, 0)
+
         }else{
-            Handler(Looper.getMainLooper()).postDelayed({
                 // Your Code
                 val intent = Intent(this@MainActivity, SplashScreenComplete::class.java)
                 intent.putExtra("shared", false)
                 startActivity(intent)
-            }, 0)
         }
     }
 }
