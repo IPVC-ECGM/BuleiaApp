@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -116,4 +117,17 @@
 
     </androidx.cardview.widget.CardView>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+    <CheckBox
+        android:id="@+id/checkbox_SplashScreen"
+        android:text="SplashScreen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:button="@null"
+        android:onClick="onCheckboxClicked"
+        android:drawableRight="?android:attr/listChoiceIndicatorMultiple"/>
+    </LinearLayout>
 </LinearLayout>

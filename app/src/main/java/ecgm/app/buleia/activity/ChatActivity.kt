@@ -31,6 +31,7 @@ class ChatActivity : AppCompatActivity() {
     var topic = ""
 
 
+
     @SuppressLint("WrongConstant")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
