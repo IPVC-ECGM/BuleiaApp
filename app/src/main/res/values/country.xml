@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="country_names" tools:ignore="MissingTranslation">CoutryName</string>
+    <string name="country_names" tools:ignore="MissingTranslation">Coutry Name</string>
 
     <string-array name="country_Array">
         <item>Aveiro</item>

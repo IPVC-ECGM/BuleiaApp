@@ -126,7 +126,7 @@
             android:layout_width="0dp"
             android:layout_height="125dp"
             android:layout_weight="1"
-            app:cardBackgroundColor="@color/transparent"
+            app:cardBackgroundColor="@color/accent"
             app:cardElevation="10dp"
             android:layout_margin="10dp">
 

@@ -28,4 +28,8 @@
     <string name="city">Cidade</string>
     <string name="title">Titulo</string>
     <string name="phoneNumber">Telem�vel</string>
+    <string name="notifications">Notificaç�o</string>
+    <string name="To" >Para</string>
+    <string name="From" >De</string>
+    <string name="country_names">Nome das Cidades</string>
 </resources>

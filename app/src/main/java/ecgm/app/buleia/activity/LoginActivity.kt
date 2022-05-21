@@ -2,13 +2,18 @@ package ecgm.app.buleia.activity
 
 import android.app.ProgressDialog
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Patterns
+import android.view.View
+import android.widget.EditText
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import ecgm.app.buleia.R
 import ecgm.app.buleia.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
@@ -27,10 +32,12 @@ class LoginActivity : AppCompatActivity() {
     private var email=""
     private var password=""
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.hide()
 
         actionBar = supportActionBar!!
         actionBar.title="@string/login"
@@ -50,6 +57,11 @@ class LoginActivity : AppCompatActivity() {
         binding.buttonLogin.setOnClickListener{
             validateData()
         }
+        val password = findViewById<EditText>(R.id.passwordText)
+        password.setAutofillHints(View.AUTOFILL_HINT_PASSWORD)
+
+        val email = findViewById<EditText>(R.id.emailText)
+        email.setAutofillHints(View.AUTOFILL_HINT_EMAIL_ADDRESS)
 
     }
     private fun checkUser(){
