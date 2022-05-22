@@ -164,4 +164,10 @@ class HomeActivity : AppCompatActivity(), FirebaseLoadContry {
     override fun onFirebaseLoadFailed(message: String) {
         TODO("Not yet implemented")
     }
+
+    fun CreateBuleia(view: View) {
+        val intent = Intent(this, CreateNewBuleia::class.java)
+        startActivity(intent)
+        finish()
+    }
 }

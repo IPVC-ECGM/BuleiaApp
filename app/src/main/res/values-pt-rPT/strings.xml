@@ -28,4 +28,9 @@
     <string name="city">Cidade</string>
     <string name="title">Titulo</string>
     <string name="phoneNumber">Telem�vel</string>
+    <string name="PickUP1">Local Partida 1</string>
+    <string name="PickUp2">Local Partida 2</string>
+    <string name="PickUp3">Local Partida 3</string>
+    <string name="DropOff">Destino</string>
+    <string name="Data">Data e Hora</string>
 </resources>
