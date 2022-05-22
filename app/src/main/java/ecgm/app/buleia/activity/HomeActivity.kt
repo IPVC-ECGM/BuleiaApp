@@ -38,6 +38,7 @@ class HomeActivity : AppCompatActivity(), FirebaseLoadContry {
         actionBar = supportActionBar!!
         actionBar.title = "Home"
 
+
         val drawerLayout = findViewById<DrawerLayout>(R.id.drawerlayout)
 //        val drawerLayout: DrawerLayout = findViewById(R.id.drawerlayout)
         val menu1 = findViewById<NavigationView>(R.id.menu_1)
@@ -77,7 +78,6 @@ class HomeActivity : AppCompatActivity(), FirebaseLoadContry {
                     startActivity(intent)
                     finish()
                 }
-
             }
             true
         }
@@ -109,7 +109,6 @@ class HomeActivity : AppCompatActivity(), FirebaseLoadContry {
             val intent = Intent(this@HomeActivity, CreateNewBuleia::class.java)
             startActivity(intent)
         }
-
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -120,7 +119,6 @@ class HomeActivity : AppCompatActivity(), FirebaseLoadContry {
         }
 
         if (id == R.id.action_msg) {
-
             val intent = Intent(this, UsersActivity::class.java)
             this.startActivity(intent)
             return true
@@ -177,7 +175,5 @@ class HomeActivity : AppCompatActivity(), FirebaseLoadContry {
         val intent = Intent(this@HomeActivity, CreateNewBuleia::class.java)
         startActivity(intent)
     }*/
-
-    
 
 }
