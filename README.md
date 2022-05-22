@@ -46,3 +46,7 @@ Esta aplicação movél foi desenvolvida num espaço de 14 semanas, com o suport
 * [Firebase](https://firebase.google.com/)
 
 * [Lottie](https://lottiefiles.com/)
+
+* [CircleImageView](https://github.com/hdodenhof/CircleImageView)
+
+* [CircularImageView](https://github.com/lopspower/CircularImageView)
