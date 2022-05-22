@@ -34,9 +34,7 @@
     <string name="PickUp3">Pick Up 3</string>
     <string name="DropOff">Drop Off</string>
     <string name="Data">Date and Time</string>
-    <string name="phoneNumber" >Phone Number</string>
     <string name="notifications">Notifications</string>
     <string name="To" >To</string>
     <string name="From" >From</string>
-
 </resources>
