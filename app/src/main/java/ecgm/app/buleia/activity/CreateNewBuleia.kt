@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
@@ -29,7 +30,7 @@ class CreateNewBuleia : AppCompatActivity() {
 
         val database = Firebase.database
         val myRef = database.getReference("Buleia")
-        var id = 0
+        var id = 1
 
         dbref = FirebaseDatabase.getInstance().getReference("Users")
         firebaseAuth = FirebaseAuth.getInstance()
@@ -66,8 +67,8 @@ class CreateNewBuleia : AppCompatActivity() {
                                 myRef.child(id.toString()).setValue(buleia)
                                 id++
 
+                                buleiaCreated()
                                 // myRef.setValue(buleia)
-
 
                             }
                         }
@@ -87,5 +88,15 @@ class CreateNewBuleia : AppCompatActivity() {
         finish()
     }
 
+    fun getId(){
+
+    }
+
+    fun buleiaCreated(){
+        val intent = Intent(this, HomeActivity::class.java)
+        Toast.makeText(this, "Ride created", Toast.LENGTH_LONG).show()
+        startActivity(intent)
+        finish()
+    }
 }
 
