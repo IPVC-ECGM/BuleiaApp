@@ -44,8 +44,8 @@ class LoginActivity : AppCompatActivity() {
         actionBar.title="@string/login_name"
 
         progressDialog = ProgressDialog(this)
-        progressDialog.setTitle("@string/PleaseWait")
-        progressDialog.setMessage("Logging in...")
+        progressDialog.setTitle(R.string.PleaseWait)
+        progressDialog.setMessage(R.string.loggingin.toString())
         progressDialog.setCanceledOnTouchOutside(false)
 
         firebaseAuth = FirebaseAuth.getInstance()
@@ -81,9 +81,9 @@ class LoginActivity : AppCompatActivity() {
 
 
         if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-            binding.emailTf.error = "Invalid email format"
+            binding.emailTf.error = "@String/invalidEmailFormat"
         }else if (TextUtils.isEmpty(password)){
-            binding.emailTf.error="Please Enter a password"
+            binding.emailTf.error="@string/enterPassword"
         }else{
             firebaselogin()
         }
@@ -105,10 +105,10 @@ class LoginActivity : AppCompatActivity() {
 
                 if(!emailVerified){
                    // Toast.makeText(this, "$emailVerified", Toast.LENGTH_SHORT).show()
-                    Toast.makeText(this, "Email not verified", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "@string/emailNotVerified", Toast.LENGTH_SHORT).show()
                 }else {
                     val email = firebaseUser.email
-                    Toast.makeText(this, "Login as $email", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "@string/loginAs $email", Toast.LENGTH_SHORT).show()
                     //Abrir Pagina do utilizador
                     startActivity(Intent(this, HomeActivity::class.java))
                     finish()
@@ -117,7 +117,7 @@ class LoginActivity : AppCompatActivity() {
             .addOnFailureListener{
                     e->
                 progressDialog.dismiss()
-                Toast.makeText(this, "Login failed due to ${e.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "@string/loginfaileddue${e.message}", Toast.LENGTH_SHORT).show()
             }
     }
 

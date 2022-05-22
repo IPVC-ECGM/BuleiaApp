@@ -32,7 +32,11 @@
     <string name="To" >Para</string>
     <string name="From" >De</string>
     <string name="country_names">Nome das Cidades</string>
-    <string name="action_msg" translatable="false">Mensagem</string>
     <string name="please_wait">Aguarda Por Favor</string>
     <string name="loggingin">A entrar</string>
+    <string name="invalidEmailFormat">Formato de email invalido</string>
+    <string name="enterPassword">Coloque uma password</string>
+    <string name="emailNotVerified">Email ainda não foi verificado</string>
+    <string name="loginAs">Conectado como</string>
+    <string name="loginfaileddue">Falhou a conectar por</string>
 </resources>

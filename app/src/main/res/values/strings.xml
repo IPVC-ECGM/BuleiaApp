@@ -34,5 +34,10 @@
     <string name="From" >From</string>
     <string name="please_wait">Please Wait...</string>
     <string name="loggingin">Logging In</string>
+    <string name="invalidEmailFormat">Invalid email format</string>
+    <string name="enterPassword">Enter a a password</string>
+    <string name="emailNotVerified">Email not verified yet</string>
+    <string name="loginAs">Login as</string>
+    <string name="loginfaileddue">Login failed due</string>
 
 </resources>
