@@ -13,7 +13,7 @@ import ecgm.app.buleia.R
 import ecgm.app.buleia.model.Buleia
 
 class CreateNewBuleia : AppCompatActivity() {
-    lateinit var button: Button
+    //lateinit var button: Button
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,8 +24,8 @@ class CreateNewBuleia : AppCompatActivity() {
         val database = Firebase.database
         val myRef = database.getReference("Buleia")
 
-        button = findViewById(R.id.ButtonAdicionaBoleia)
-        button.setOnClickListener{
+        //button = findViewById(R.id.ButtonAdicionaBoleia)
+       /* button.setOnClickListener{
 
             var pick = findViewById<EditText>(R.id.text1).text
             var pickA = findViewById<EditText>(R.id.text2).text
@@ -37,7 +37,7 @@ class CreateNewBuleia : AppCompatActivity() {
             val user_id = sharedPref.getString("user_id", "anonimo")
             val buleia = Buleia(pick.toString(),pickA.toString(),pickB.toString(),drop.toString(),date.toString(),"teste")
             myRef.setValue(buleia)
-        }
+        }*/
     }
 
     fun button1(view: View) {

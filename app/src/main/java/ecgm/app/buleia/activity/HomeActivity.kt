@@ -12,6 +12,7 @@ import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -101,6 +102,8 @@ class HomeActivity : AppCompatActivity(), FirebaseLoadContry {
 
         firebaseAuth = FirebaseAuth.getInstance()
         checkUser()
+
+
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -165,9 +168,9 @@ class HomeActivity : AppCompatActivity(), FirebaseLoadContry {
         TODO("Not yet implemented")
     }
 
-    fun CreateBuleia(view: View) {
-        val intent = Intent(this, CreateNewBuleia::class.java)
+    fun ButtonADD(view: View) {
+        val intent = Intent(this@HomeActivity, CreateNewBuleia::class.java)
         startActivity(intent)
-        finish()
     }
+
 }
