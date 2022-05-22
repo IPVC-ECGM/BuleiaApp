@@ -103,6 +103,12 @@ class HomeActivity : AppCompatActivity(), FirebaseLoadContry {
         firebaseAuth = FirebaseAuth.getInstance()
         checkUser()
 
+        val mFab = findViewById<FloatingActionButton>(R.id.ButtonAdicionaBoleia)
+        mFab.setOnClickListener {
+            //Toast.makeText(this@HomeActivity, "FAB is clicked...", Toast.LENGTH_LONG).show()
+            val intent = Intent(this@HomeActivity, CreateNewBuleia::class.java)
+            startActivity(intent)
+        }
 
     }
 
@@ -153,8 +159,7 @@ class HomeActivity : AppCompatActivity(), FirebaseLoadContry {
         val country_name = getCoutryNameList(countryList)
         //Adapter
         val adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, country_name)
-        spinner_from.adapter = adapter
-        spinner_to.adapter = adapter
+
     }
 
     private fun getCoutryNameList(countryList: List<Country>): List<String> {
@@ -168,9 +173,9 @@ class HomeActivity : AppCompatActivity(), FirebaseLoadContry {
         TODO("Not yet implemented")
     }
 
-    fun ButtonADD(view: View) {
+    /*fun ButtonADD(view: View) {
         val intent = Intent(this@HomeActivity, CreateNewBuleia::class.java)
         startActivity(intent)
-    }
+    }*/
 
 }
