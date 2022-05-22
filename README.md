@@ -44,3 +44,5 @@ Esta aplicação movél foi desenvolvida num espaço de 14 semanas, com o suport
 * [Kotlin](https://kotlinlang.org/)
 
 * [Firebase](https://firebase.google.com/)
+
+* [Lottie](https://lottiefiles.com/)
