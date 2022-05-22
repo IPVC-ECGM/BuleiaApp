@@ -78,7 +78,6 @@ class HomeActivity : AppCompatActivity(), FirebaseLoadContry {
                     startActivity(intent)
                     finish()
                 }
-
             }
             true
         }
@@ -100,6 +99,7 @@ class HomeActivity : AppCompatActivity(), FirebaseLoadContry {
                 firebaseLoadContry.onFirebaseLoadSuccess(countryList)
             }
         })
+
 
         firebaseAuth = FirebaseAuth.getInstance()
         checkUser()
