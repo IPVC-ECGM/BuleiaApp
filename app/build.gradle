@@ -90,7 +90,7 @@ dependencies {
 
     //SplashScreen
 
-    def lottieVersion = "3.4.0"
+    def lottieVersion = "5.1.1"
     implementation "com.airbnb.android:lottie:$lottieVersion"
 
     testImplementation 'junit:junit:4.13.2'

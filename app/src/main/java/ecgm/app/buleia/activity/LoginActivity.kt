@@ -2,13 +2,18 @@ package ecgm.app.buleia.activity
 
 import android.app.ProgressDialog
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Patterns
+import android.view.View
+import android.widget.EditText
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import ecgm.app.buleia.R
 import ecgm.app.buleia.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
@@ -22,22 +27,25 @@ class LoginActivity : AppCompatActivity() {
     //Progresso
     private lateinit var progressDialog: ProgressDialog
 
+
     //Firebase autenticação
     private lateinit var firebaseAuth: FirebaseAuth
     private var email=""
     private var password=""
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.hide()
 
         actionBar = supportActionBar!!
         actionBar.title="@string/login"
 
         progressDialog = ProgressDialog(this)
         progressDialog.setTitle("Please Wait")
-        progressDialog.setMessage("Logginf in...")
+        progressDialog.setMessage("Logging in...")
         progressDialog.setCanceledOnTouchOutside(false)
 
         firebaseAuth = FirebaseAuth.getInstance()
@@ -50,6 +58,11 @@ class LoginActivity : AppCompatActivity() {
         binding.buttonLogin.setOnClickListener{
             validateData()
         }
+        val password = findViewById<EditText>(R.id.passwordText)
+        password.setAutofillHints(View.AUTOFILL_HINT_PASSWORD)
+
+        val email = findViewById<EditText>(R.id.emailText)
+        email.setAutofillHints(View.AUTOFILL_HINT_EMAIL_ADDRESS)
 
     }
     private fun checkUser(){
@@ -88,13 +101,13 @@ class LoginActivity : AppCompatActivity() {
                 progressDialog.dismiss()
                 //Buscar info do utilizador
                 val firebaseUser = firebaseAuth.currentUser
-                val emailVerified: Boolean = firebaseUser!!.isEmailVerified()
+                val emailVerified: Boolean = firebaseUser!!.isEmailVerified
 
-                if(emailVerified != true){
+                if(!emailVerified){
                    // Toast.makeText(this, "$emailVerified", Toast.LENGTH_SHORT).show()
                     Toast.makeText(this, "Email not verified", Toast.LENGTH_SHORT).show()
                 }else {
-                    val email = firebaseUser!!.email
+                    val email = firebaseUser.email
                     Toast.makeText(this, "Login as $email", Toast.LENGTH_SHORT).show()
                     //Abrir Pagina do utilizador
                     startActivity(Intent(this, HomeActivity::class.java))

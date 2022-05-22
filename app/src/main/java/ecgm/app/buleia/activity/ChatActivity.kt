@@ -31,13 +31,15 @@ class ChatActivity : AppCompatActivity() {
     var topic = ""
 
 
+
     @SuppressLint("WrongConstant")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chat)
         supportActionBar?.hide()
 
-        chatRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
+        chatRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        chatRecyclerView.scrollToPosition(chatList.size - 1)
 
         var intent = getIntent()
         var userId = intent.getStringExtra("userId")
@@ -123,6 +125,8 @@ class ChatActivity : AppCompatActivity() {
                 }
 
                 val chatAdapter = ChatAdapter(this@ChatActivity, chatList)
+                chatRecyclerView.scrollToPosition(chatList.size - 1)
+                chatRecyclerView.scrollToPosition(chatAdapter.itemCount - 1)
 
                 chatRecyclerView.adapter = chatAdapter
             }

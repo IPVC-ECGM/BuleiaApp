@@ -22,7 +22,7 @@
     <string name="btn_save">Change Image</string>
     <string name="btn_name">Change Name</string>
     <string name="type_message">Type Your Message</string>
-    <string name="btn_send">Send Message</string>
+    <string name="btn_send" >Send Message</string>
     <string name="where_to">Where to?</string>
     <string name="Districts">District</string>
     <string name="submit">Submit</string>
@@ -34,5 +34,9 @@
     <string name="PickUp3">Pick Up 3</string>
     <string name="DropOff">Drop Off</string>
     <string name="Data">Date and Time</string>
+    <string name="phoneNumber" >Phone Number</string>
+    <string name="notifications">Notifications</string>
+    <string name="To" >To</string>
+    <string name="From" >From</string>
 
 </resources>

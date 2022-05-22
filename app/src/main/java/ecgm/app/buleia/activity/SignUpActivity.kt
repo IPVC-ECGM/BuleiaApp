@@ -36,6 +36,7 @@ class SignUpActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.hide()
 
         actionBar = supportActionBar!!
         actionBar.title="Sign Up"
@@ -54,6 +55,10 @@ class SignUpActivity : AppCompatActivity() {
         //Botão de Sign Up
         binding.buttonSignUp.setOnClickListener{
             validateData()
+        }
+
+        binding.loginClick.setOnClickListener{
+            startActivity(Intent(this, LoginActivity::class.java))
         }
 
     }

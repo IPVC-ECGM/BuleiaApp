@@ -33,4 +33,8 @@
     <string name="PickUp3">Local Partida 3</string>
     <string name="DropOff">Destino</string>
     <string name="Data">Data e Hora</string>
+    <string name="notifications">Notificaç�o</string>
+    <string name="To" >Para</string>
+    <string name="From" >De</string>
+    <string name="country_names">Nome das Cidades</string>
 </resources>

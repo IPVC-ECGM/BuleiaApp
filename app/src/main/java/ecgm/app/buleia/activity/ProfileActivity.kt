@@ -18,6 +18,7 @@ class ProfileActivity : AppCompatActivity() {
         setContentView(binding.root)
         supportActionBar?.hide()
 
+
         val circularProgressBar = findViewById<CircularProgressBar>(R.id.circularProgressBar)
             circularProgressBar.apply {
                 progressMax = 100f
