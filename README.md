@@ -7,51 +7,42 @@
 </div>
 
 
-<!-- TABLE OF CONTENTS -->
-<details>
-  <ol>
-    <li>
-      <a>Sobre</a>
-      <ul>
-        <li><a>Grupo 6</a></li>
-        <li><a>Desenvolvimento</a></li>
-      </ul>
-    </li>
-  </ol>
-</details>
-
-
-
 <!-- ABOUT THE PROJECT -->
-## Sobre
+# Sobre
 
 Buleia é uma aplicação móvel de boleias direcionada para os alunos e docentes do IPVC.​
 Nesta aplicação é possível anunciar uma viagem para que outros utilizadores se juntem e/ou procurar viagens de modo a:​
 
-* Poupar e economizar dinheiro;
+* Minimizar os custos de transportes;
 * Reduzir emissões automóveis;
-* Reduzir congestionamento;
-* Integração social;
+* Diminuir o número de veículos na estrada;
+* Conhecer novas pessoas;
+* Partilha de Viagem entre alunos do IPVC;
+* Melhor gestão do tempo.
 
-### Grupo 6
+## Grupo 6
 
-* Carlos Filipe marques Cruz 20016 👨
-* Diogo 23800 👨
-* Gaspar  22283  👨
-* Joaquim  23804  👨
-* Kelly  23806  👨
-* Suila
-                                                                                                                  
-### Desenvolvimento
+* Carlos Filipe marques Cruz 🙃           | 20016 | carloscz@ipvc.pt  
+* Diogo Alexandre Pinto Mateus 🤪         | 20417 | diogomateus@ipvc.pt
+* Gaspar Vilas Espinheira 🥳              | 23761 | gaspare@ipvc.pt  
+* Joaquim Alfredo Rodrigues Pereira 😎    | 21428 | joaquimpereira@ipvc.pt 
+* Kelly Ribeiro Araujo 😏                 | 20025 | kellyaraujo@ipvc.pt  
+* Suila Silva de Oliveira 😶              | 23156 | suilaoliveira@ipvc.pt 
 
-Esta aplicação movél foi desenvolvida num espaço de 14 semanas, com as seguintes tecnologias:
+###Intituição
+
+* Engenharia de Computação Gráfica e Multimédia
+* Escola Superior de Tecnologia e Gestão
+* Instituto Politécnico de Viana do Castelo
+
+#### Desenvolvimento
+
+Esta aplicação movél foi desenvolvida num espaço de 14 semanas, com o suporte das seguintes tecnologias:
 
 * [Kotlin](https://kotlinlang.org/)
+
 * [Android Studio](https://developer.android.com/studio/)
+
 * [Firebase](https://firebase.google.com/)
-Kotlin
-Kotlin Programming Language
-Kotlin Programming Language
-Firebase
-Firebase
-Firebase is Google's mobile platform that helps you quickly develop high-quality apps and grow your business.
+
+* [Firebase](https://firebase.google.com/)
