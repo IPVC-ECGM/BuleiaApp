@@ -8,7 +8,7 @@
 
 
 <!-- ABOUT THE PROJECT -->
-# Sobre
+## Sobre
 
 Buleia é uma aplicação móvel de boleias direcionada para os alunos e docentes do IPVC.​
 Nesta aplicação é possível anunciar uma viagem para que outros utilizadores se juntem e/ou procurar viagens de modo a:​
@@ -29,13 +29,13 @@ Nesta aplicação é possível anunciar uma viagem para que outros utilizadores 
 * Kelly Ribeiro Araujo 😏                 | 20025 | kellyaraujo@ipvc.pt  
 * Suila Silva de Oliveira 😶              | 23156 | suilaoliveira@ipvc.pt 
 
-###Intituição
+## Intituição
 
 * Engenharia de Computação Gráfica e Multimédia
 * Escola Superior de Tecnologia e Gestão
 * Instituto Politécnico de Viana do Castelo
 
-#### Desenvolvimento
+## Desenvolvimento
 
 Esta aplicação movél foi desenvolvida num espaço de 14 semanas, com o suporte das seguintes tecnologias:
 
