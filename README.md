@@ -39,10 +39,8 @@ Nesta aplicação é possível anunciar uma viagem para que outros utilizadores 
 
 Esta aplicação movél foi desenvolvida num espaço de 14 semanas, com o suporte das seguintes tecnologias:
 
-* [Kotlin](https://kotlinlang.org/)
-
 * [Android Studio](https://developer.android.com/studio/)
 
-* [Firebase](https://firebase.google.com/)
+* [Kotlin](https://kotlinlang.org/)
 
-* [API google](https://firebase.google.com/)
+* [Firebase](https://firebase.google.com/)
