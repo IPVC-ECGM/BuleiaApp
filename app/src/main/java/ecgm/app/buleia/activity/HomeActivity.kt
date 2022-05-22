@@ -78,6 +78,7 @@ class HomeActivity : AppCompatActivity(), FirebaseLoadContry {
                     startActivity(intent)
                     finish()
                 }
+
             }
             true
         }
@@ -109,6 +110,7 @@ class HomeActivity : AppCompatActivity(), FirebaseLoadContry {
             val intent = Intent(this@HomeActivity, CreateNewBuleia::class.java)
             startActivity(intent)
         }
+
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -119,6 +121,7 @@ class HomeActivity : AppCompatActivity(), FirebaseLoadContry {
         }
 
         if (id == R.id.action_msg) {
+
             val intent = Intent(this, UsersActivity::class.java)
             this.startActivity(intent)
             return true
@@ -175,5 +178,8 @@ class HomeActivity : AppCompatActivity(), FirebaseLoadContry {
         val intent = Intent(this@HomeActivity, CreateNewBuleia::class.java)
         startActivity(intent)
     }*/
+
+
+
 
 }
