@@ -65,6 +65,7 @@ class CreateNewBuleia : AppCompatActivity() {
                                 )
                                 myRef.child(id.toString()).setValue(buleia)
                                 id++
+
                                 // myRef.setValue(buleia)
 
 
@@ -78,11 +79,7 @@ class CreateNewBuleia : AppCompatActivity() {
             }
         })
 
-
-
-
     }
-
 
     fun button1(view: View) {
         val intent = Intent(this, HomeActivity::class.java)

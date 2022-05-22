@@ -14,19 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BuleiaApp">
         <activity
-            android:name=".activity.PostBuleia"
-            android:exported="false" />
-        <activity
             android:name=".activity.CreateNewBuleia"
             android:exported="false" />
-
         <service
             android:name=".firebase.FirebaseService"
             android:exported="true"
-            android:permission="com.google.android.c2dm.permission.SEND">
-        <activity
-            android:name=".activity.teste1"
-            android:exported="false" />
+            android:permission="com.google.android.c2dm.permission.SEND"/>
         <activity
             android:name=".activity.SplashScreenComplete"
             android:exported="false" />
