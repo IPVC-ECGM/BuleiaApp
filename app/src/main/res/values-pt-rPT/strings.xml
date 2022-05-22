@@ -37,4 +37,11 @@
     <string name="To" >Para</string>
     <string name="From" >De</string>
     <string name="country_names">Nome das Cidades</string>
+    <string name="rideDay">Data</string>
+    <string name="rideTime">Hora</string>
+    <string name="rideFrom">Ponto de Partida</string>
+    <string name="rideTo">Ponto de Chegada</string>
+    <string name="pickup_02">Ponto de paragem 2</string>
+    <string name="pickup_03">Ponto de paragem 3</string>
+    <string name="pickup_01">Ponto de paragem 1</string>
 </resources>

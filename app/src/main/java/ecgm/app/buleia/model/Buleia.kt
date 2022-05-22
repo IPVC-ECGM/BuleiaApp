@@ -7,4 +7,6 @@ data class Buleia(
     val drop: String,
     val date: String,
     val name: String,
+    val toString: String,
+    val toString1: String,
 )

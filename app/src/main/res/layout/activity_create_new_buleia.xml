@@ -50,7 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/appBarLayout"
-            android:text="@string/Data"
+            android:text="@string/rideDay"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="20dp"
@@ -62,18 +62,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/rideDay"
-            android:text="@string/Data"
+            android:text="@string/rideTime"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:textAlignment="center">
         </EditText>
 
         <EditText
-            android:id="@+id/DriveFrom"
+            android:id="@+id/driveFrom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/rideTime"
-            android:text="@string/From"
+            android:text="@string/rideFrom"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:textAlignment="center">
@@ -83,8 +83,8 @@
             android:id="@+id/driveTo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/DriveFrom"
-            android:text="@string/From"
+            android:layout_below="@id/driveFrom"
+            android:text="@string/rideTo"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:textAlignment="center">
@@ -95,7 +95,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/driveTo"
-            android:text="@string/PickUP1"
+            android:text="@string/pickup_01"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:textAlignment="center">
@@ -106,7 +106,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/pickUp_1"
-            android:text="@string/PickUp2"
+            android:text="@string/pickup_02"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:textAlignment="center">
@@ -117,7 +117,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/pickUp_2"
-            android:text="@string/PickUp3"
+            android:text="@string/pickup_03"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:textAlignment="center">

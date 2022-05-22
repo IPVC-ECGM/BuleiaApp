@@ -37,4 +37,11 @@
     <string name="notifications">Notifications</string>
     <string name="To" >To</string>
     <string name="From" >From</string>
+    <string name="rideDay">Date</string>
+    <string name="rideTime">Hour</string>
+    <string name="rideFrom">Begin of Ride</string>
+    <string name="rideTo">End of Ride</string>
+    <string name="pickup_02">Pick up 2</string>
+    <string name="pickup_03">Pick up 3</string>
+    <string name="pickup_01">Pick up 1</string>
 </resources>

@@ -1,6 +1,5 @@
 package ecgm.app.buleia.activity
 
-import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -47,21 +46,25 @@ class CreateNewBuleia : AppCompatActivity() {
                             button = findViewById(R.id.ButtonAdicionaBoleia)
                             button.setOnClickListener {
 
-                                var pick = findViewById<EditText>(R.id.text1).text
-                                var pickA = findViewById<EditText>(R.id.text2).text
-                                var pickB = findViewById<EditText>(R.id.text3).text
-                                var drop = findViewById<EditText>(R.id.text4).text
-                                var date = findViewById<EditText>(R.id.text5).text
+                                var rideDay = findViewById<EditText>(R.id.rideDay).text
+                                var rideTime = findViewById<EditText>(R.id.rideTime).text
+                                var driveFrom = findViewById<EditText>(R.id.driveFrom).text
+                                var driveTo = findViewById<EditText>(R.id.driveTo).text
+                                var pick1 = findViewById<EditText>(R.id.pickUp_1).text
+                                var pick2 = findViewById<EditText>(R.id.pickUp_2).text
+                                var pick3 = findViewById<EditText>(R.id.pickUp_3).text
 
                                 /*val sharedPref = this.getPreferences(Context.MODE_PRIVATE)
                                 val user_id = sharedPref.getString("user_id", "anonimo")*/
                                 //var user = FirebaseAuth.getInstance().currentUser?.uid
                                 val buleia = Buleia(
-                                    pick.toString(),
-                                    pickA.toString(),
-                                    pickB.toString(),
-                                    drop.toString(),
-                                    date.toString(),
+                                    rideDay.toString(),
+                                    rideTime.toString(),
+                                    driveFrom.toString(),
+                                    driveTo.toString(),
+                                    pick1.toString(),
+                                    pick2.toString(),
+                                    pick3.toString(),
                                     user.toString()
                                 )
                                 myRef.child(id.toString()).setValue(buleia)
