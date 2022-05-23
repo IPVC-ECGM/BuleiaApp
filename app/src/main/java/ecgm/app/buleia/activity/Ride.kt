@@ -1,3 +1,3 @@
 package ecgm.app.buleia.activity
 
-data class Ride(var date : String ?= null,var drop : String ?= null,var name : String ?= null,var pick : String ?= null,var pickA : String ?= null,var pickB : String ?= null)
+data class Ride(var rideDay : String ?= null,var rideTime : String ?= null,var user : String ?= null,var driveFrom : String ?= null,var driveTo : String ?= null,var pick1 : String ?= null,var pick2 : String ?= null,var pick3 : String ?= null)

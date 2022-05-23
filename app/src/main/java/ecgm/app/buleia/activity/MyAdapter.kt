@@ -20,12 +20,10 @@ class MyAdapter(private val rideList : ArrayList<Ride>) : RecyclerView.Adapter<M
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentitem = rideList[position]
 
-        holder.date.text = currentitem.date
-        holder.drop.text = currentitem.drop
-        holder.name.text = currentitem.name
-        holder.pick1.text = currentitem.pick
-        holder.pick2.text = currentitem.pickA
-        holder.pick3.text = currentitem.pickB
+        holder.date.text = currentitem.rideDay
+        holder.drop.text = currentitem.rideTime
+        holder.pick1.text = currentitem.driveFrom
+        holder.pick2.text = currentitem.driveTo
 
     }
 
@@ -42,7 +40,7 @@ class MyAdapter(private val rideList : ArrayList<Ride>) : RecyclerView.Adapter<M
         val name : TextView = itemView.findViewById(R.id.tvNome)
         val pick1 : TextView = itemView.findViewById(R.id.tvPick1)
         val pick2 : TextView = itemView.findViewById(R.id.tvPick2)
-        val pick3 : TextView = itemView.findViewById(R.id.tvPick3)
+
 
     }
 }
