@@ -14,7 +14,7 @@ import ecgm.app.buleia.adapter.MyAdapter
 import ecgm.app.buleia.model.DriverModel
 import java.util.ArrayList
 
-class DriversActivity : AppCompatActivity() {
+class DriverActivity : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var driverRecyclerview: RecyclerView
     private lateinit var driverList: ArrayList<DriverModel>

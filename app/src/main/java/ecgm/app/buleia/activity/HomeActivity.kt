@@ -105,7 +105,7 @@ class HomeActivity : AppCompatActivity(), FirebaseLoadContry {
 
         ButtonAdicionaBoleia.setOnClickListener {
             //Toast.makeText(this@HomeActivity, "FAB is clicked...", Toast.LENGTH_LONG).show()
-            val intent = Intent(this@HomeActivity, DriversActivity::class.java)
+            val intent = Intent(this@HomeActivity, DriverActivity::class.java)
             startActivity(intent)
         }
 

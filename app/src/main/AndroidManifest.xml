@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BuleiaApp">
         <activity
-            android:name=".activity.DriversActivity"
+            android:name=".activity.DriverActivity"
             android:exported="false" />
         <activity
             android:name=".activity.CreateNewBuleia"
