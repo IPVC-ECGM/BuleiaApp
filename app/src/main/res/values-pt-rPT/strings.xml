@@ -41,7 +41,7 @@
     <string name="rideTime">Hora</string>
     <string name="rideFrom">Partida</string>
     <string name="rideTo">Chegada</string>
-    <string name="pickup_02">Ponto de paragem 2</string>
-    <string name="pickup_03">Ponto de paragem 3</string>
-    <string name="pickup_01">Ponto de paragem 1</string>
+    <string name="pickup_02">Paragem 2</string>
+    <string name="pickup_03">Paragem 3</string>
+    <string name="pickup_01">Paragem 1</string>
 </resources>

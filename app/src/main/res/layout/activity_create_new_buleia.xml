@@ -50,7 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/appBarLayout"
-            android:text="@string/rideDay"
+            android:hint="@string/rideDay"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="20dp"
@@ -62,7 +62,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/rideDay"
-            android:text="@string/rideTime"
+            android:hint="@string/rideTime"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:textAlignment="center">
@@ -73,7 +73,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/rideTime"
-            android:text="@string/rideFrom"
+            android:hint="@string/rideFrom"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:textAlignment="center">
@@ -84,7 +84,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/driveFrom"
-            android:text="@string/rideTo"
+            android:hint="@string/rideTo"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:textAlignment="center">
@@ -95,7 +95,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/driveTo"
-            android:text="@string/pickup_01"
+            android:hint="@string/pickup_01"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:textAlignment="center">
@@ -106,7 +106,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/pickUp_1"
-            android:text="@string/pickup_02"
+            android:hint="@string/pickup_02"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:textAlignment="center">
@@ -117,7 +117,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/pickUp_2"
-            android:text="@string/pickup_03"
+            android:hint="@string/pickup_03"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:textAlignment="center">
