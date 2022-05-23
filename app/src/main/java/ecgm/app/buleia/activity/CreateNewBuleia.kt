@@ -39,7 +39,7 @@ class CreateNewBuleia : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
 
 
-     /*  databaseQuery.addValueEventListener(object : ValueEventListener {
+      databaseQuery.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
               var BuleiaId = 0
                 for (snapshot in snapshot.children){
@@ -51,13 +51,12 @@ class CreateNewBuleia : AppCompatActivity() {
             override fun onCancelled(error: DatabaseError) {
                 TODO("Not yet implemented")
             }
-        })*/
+        })
 
         dbref.addValueEventListener(object : ValueEventListener {
 
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
-                    var BuleiaId = 0
 
                     for (userSnapshot in snapshot.children) {
                         val user = userSnapshot.getValue(User::class.java)
@@ -66,7 +65,6 @@ class CreateNewBuleia : AppCompatActivity() {
                             button = findViewById(R.id.ButtonAdicionaBoleia)
                             button.setOnClickListener {
 
-                               // getId()
 
                                 var id = BuleiaId+1
                                 var rideDay = findViewById<EditText>(R.id.rideDay).text
