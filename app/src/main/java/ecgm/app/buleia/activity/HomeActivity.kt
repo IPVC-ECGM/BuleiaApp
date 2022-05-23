@@ -1,7 +1,6 @@
 package ecgm.app.buleia.activity
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
@@ -10,11 +9,8 @@ import android.view.View
 import android.widget.*
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -23,8 +19,6 @@ import ecgm.app.buleia.`interface`.FirebaseLoadContry
 import ecgm.app.buleia.model.Country
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.item_bottom_sheet.view.*
-import java.lang.ref.Reference
-import java.util.ArrayList
 
 class HomeActivity : AppCompatActivity(), FirebaseLoadContry {
 
@@ -110,6 +104,23 @@ class HomeActivity : AppCompatActivity(), FirebaseLoadContry {
             startActivity(intent)
         }
 
+        activateRide.setOnClickListener {
+            checkRider()
+        }
+
+    }
+
+    private fun checkRider () {
+
+        activateRide.isSelected = !activateRide.isSelected
+            if (spinner_to2.visibility == View.VISIBLE) {
+                rideTo.visibility = View.VISIBLE
+                spinner_to2.visibility = View.GONE
+            }
+            else if (rideTo.visibility == View.VISIBLE) {
+                rideTo.visibility = View.GONE
+                spinner_to2.visibility = View.VISIBLE
+            }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -159,7 +170,9 @@ class HomeActivity : AppCompatActivity(), FirebaseLoadContry {
         val country_name = getCoutryNameList(countryList)
         //Adapter
         val adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, country_name)
-
+        spinner_from.adapter = adapter
+        spinner_to.adapter = adapter
+        spinner_to2.adapter = adapter
     }
 
     private fun getCoutryNameList(countryList: List<Country>): List<String> {

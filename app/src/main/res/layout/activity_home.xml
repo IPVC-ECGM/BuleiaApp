@@ -23,14 +23,38 @@
                             android:background="@color/black"
                             android:orientation="vertical">
 
-                                <ImageView
-                                    android:id="@+id/imageView"
+                                <ImageButton
+                                    android:id="@+id/activateRide"
+                                    android:layout_width="100dp"
+                                    android:layout_gravity="center"
+                                    android:layout_height="100dp"
+                                    android:enabled="false"
+                                    android:background="@drawable/custom_buttom" >
+                                </ImageButton>
+
+                                <TextView
+                                    android:id="@+id/rideTo"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_gravity="center"
+                                    android:background="@color/black"
+                                    android:textColor="@color/icons"
+                                    android:textAlignment="center"
+                                    android:textSize="20sp"
+                                    android:visibility="gone"
+                                    android:text="CITY IM GOING" />
+
+                                <Spinner
+                                    android:id="@+id/spinner_to2"
                                     android:layout_width="match_parent"
-                                    android:layout_height="205dp"
-                                    android:padding="20sp"
-                                    android:adjustViewBounds="false"
-                                    android:cropToPadding="false"
-                                    app:srcCompat="@drawable/buleia" />
+                                    android:layout_height="wrap_content"
+                                    android:textAlignment="center"
+                                    android:layout_gravity="center"
+                                    android:backgroundTint="@color/icons"
+                                    android:spinnerMode="dialog"
+                                    android:visibility="visible"
+                                    android:layout_marginTop="10dp" />
 
                                 <RelativeLayout
                                     android:layout_width="wrap_content"
