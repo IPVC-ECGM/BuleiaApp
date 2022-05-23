@@ -43,6 +43,7 @@ public class SplashScreenComplete extends AppCompatActivity {
            @Override
             public void run(){
                startActivity(new Intent(SplashScreenComplete.this, LoginActivity.class));
+               finish();
            }
         }, 8500);
     }

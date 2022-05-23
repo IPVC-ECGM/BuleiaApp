@@ -11,6 +11,8 @@ import android.widget.*
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
@@ -25,11 +27,14 @@ import java.lang.ref.Reference
 import java.util.ArrayList
 
 class HomeActivity : AppCompatActivity(), FirebaseLoadContry {
+
     private lateinit var toggle: ActionBarDrawerToggle
     private lateinit var actionBar: ActionBar
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var databaseReference: DatabaseReference
     private lateinit var firebaseLoadContry: FirebaseLoadContry
+    private lateinit var rideRecyclerview: RecyclerView
+    private lateinit var rideArrayList: ArrayList<Ride>
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,6 +43,13 @@ class HomeActivity : AppCompatActivity(), FirebaseLoadContry {
         actionBar = supportActionBar!!
         actionBar.title = "Home"
 
+        rideRecyclerview = findViewById(R.id.rideList)
+        rideRecyclerview.layoutManager = LinearLayoutManager(this )
+        rideRecyclerview.setHasFixedSize(true)
+
+        //Guardar dados da base de dados usando a classe Ride
+        rideArrayList = arrayListOf<Ride>()
+        getRideData()
 
         val drawerLayout = findViewById<DrawerLayout>(R.id.drawerlayout)
 //        val drawerLayout: DrawerLayout = findViewById(R.id.drawerlayout)
@@ -174,12 +186,31 @@ class HomeActivity : AppCompatActivity(), FirebaseLoadContry {
         TODO("Not yet implemented")
     }
 
-    /*fun ButtonADD(view: View) {
-        val intent = Intent(this@HomeActivity, CreateNewBuleia::class.java)
-        startActivity(intent)
-    }*/
+    private fun getRideData() {
 
+        databaseReference = FirebaseDatabase.getInstance().getReference("Buleia")
 
+        databaseReference.addValueEventListener(object : ValueEventListener {
 
+            override fun onDataChange(snapshot: DataSnapshot) {
 
+                if(snapshot.exists()){
+                    for(rideSnapshot in snapshot.children){
+
+                        val ride = rideSnapshot.getValue(Ride::class.java)
+                        rideArrayList.add(ride!!)
+
+                    }
+
+                    rideRecyclerview.adapter = MyAdapter(rideArrayList)
+                }
+
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+        })
+    }
 }
