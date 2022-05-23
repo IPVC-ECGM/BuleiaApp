@@ -18,7 +18,7 @@
         android:layout_marginTop="30dp"
         android:background="@drawable/my_custom_background"
         android:orientation="vertical"
-        android:paddingLeft="30dp"
+        android:paddingLeft="20dp"
         android:paddingTop="20dp"
         android:paddingBottom="20dp"
        >
@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/rideDay"
                 android:textColor="@color/primary_text"
-                android:textSize="25dp"
+                android:textSize="20dp"
                 android:layout_marginLeft="50dp"
                 android:textStyle="bold"/>
 
@@ -61,7 +61,7 @@
             android:text="@string/rideTime"
             android:textColor="@color/primary_text"
             android:layout_marginLeft="50dp"
-            android:textSize="25dp"
+            android:textSize="20dp"
             android:textStyle="bold"/>
 
         <TextView
@@ -87,7 +87,7 @@
                 android:text="@string/rideFrom"
                 android:textColor="@color/primary_text"
                 android:layout_marginLeft="50dp"
-                android:textSize="25dp"
+                android:textSize="20dp"
                 android:textStyle="bold"/>
 
             <TextView
@@ -113,7 +113,7 @@
                 android:text="@string/rideTo"
                 android:textColor="@color/primary_text"
                 android:layout_marginLeft="50dp"
-                android:textSize="25dp"
+                android:textSize="20dp"
                 android:textStyle="bold"/>
 
             <TextView

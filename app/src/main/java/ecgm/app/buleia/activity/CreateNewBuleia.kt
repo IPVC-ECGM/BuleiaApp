@@ -16,8 +16,6 @@ import ecgm.app.buleia.R
 import ecgm.app.buleia.model.Buleia
 import ecgm.app.buleia.model.User
 
-
-
 class CreateNewBuleia : AppCompatActivity() {
     lateinit var button: Button
     private lateinit var dbref : DatabaseReference
