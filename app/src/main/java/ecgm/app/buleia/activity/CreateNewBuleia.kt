@@ -45,7 +45,7 @@ class CreateNewBuleia : AppCompatActivity() {
                 databaseQuery.get().addOnSuccessListener{
                         snapshot ->
                     var BuleiaId = 0
-
+                    var id = 0
                     for (snapshot in snapshot.children){
                         var viagem = snapshot.getValue()
                         Log.d("teste", viagem.toString())
