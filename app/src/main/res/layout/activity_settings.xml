@@ -10,7 +10,7 @@
     android:orientation="vertical"
     tools:context=".activity.SettingsActivity">
 
-<com.google.android.material.appbar.AppBarLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
@@ -20,20 +20,23 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/primary">
+            android:background="@color/black">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_gravity="center"
                 android:orientation="horizontal"
                 android:gravity="center_vertical">
 
                 <Button
-                    android:layout_width="35dp"
-                    android:layout_height="40dp"
-                    android:backgroundTint="@color/design_default_color_error"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:backgroundTint="@color/icons"
+                    android:layout_marginEnd="20dp"
                     android:onClick="button1"
-                    app:icon="@drawable/ic_baseline_arrow_back_ios_24"/>
+                    app:icon="@drawable/ic_baseline_arrow_back_ios_24"
+                    tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
 
                 <TextView
                     android:text="Settings"
@@ -41,6 +44,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="#ffffff"
                     style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"/>
+
             </LinearLayout>
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>

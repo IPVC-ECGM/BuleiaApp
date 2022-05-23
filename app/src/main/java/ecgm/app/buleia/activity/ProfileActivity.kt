@@ -18,15 +18,21 @@ class ProfileActivity : AppCompatActivity() {
         setContentView(binding.root)
         supportActionBar?.hide()
 
-
         val circularProgressBar = findViewById<CircularProgressBar>(R.id.circularProgressBar)
-            circularProgressBar.apply {
-                progressMax = 100f
-                setProgressWithAnimation(50f, 1000)
-                progressBarWidth = 5f
-                backgroundProgressBarWidth = 7f
-                progressBarColor = Color.GREEN
-            }!!
+        circularProgressBar.apply {
+            progressMax = 100f
+            setProgressWithAnimation(50f, 1000)
+            progressBarWidth = 5f
+            backgroundProgressBarWidth = 7f
+        }!!
+
+        val circularProgressBar2 = findViewById<CircularProgressBar>(R.id.circularProgressBar2)
+        circularProgressBar2.apply {
+            progressMax = 100f
+            setProgressWithAnimation(50f, 1000)
+            progressBarWidth = 5f
+            backgroundProgressBarWidth = 7f
+        }!!
     }
 
     fun button1(view: View) {
