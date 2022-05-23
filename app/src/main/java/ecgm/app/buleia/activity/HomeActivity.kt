@@ -33,8 +33,7 @@ class HomeActivity : AppCompatActivity(), FirebaseLoadContry {
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var databaseReference: DatabaseReference
     private lateinit var firebaseLoadContry: FirebaseLoadContry
-    private lateinit var rideRecyclerview: RecyclerView
-    private lateinit var rideArrayList: ArrayList<Ride>
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,13 +42,7 @@ class HomeActivity : AppCompatActivity(), FirebaseLoadContry {
         actionBar = supportActionBar!!
         actionBar.title = "Home"
 
-        rideRecyclerview = findViewById(R.id.rideList)
-        rideRecyclerview.layoutManager = LinearLayoutManager(this )
-        rideRecyclerview.setHasFixedSize(true)
 
-        //Guardar dados da base de dados usando a classe Ride
-        rideArrayList = arrayListOf<Ride>()
-        getRideData()
 
         val drawerLayout = findViewById<DrawerLayout>(R.id.drawerlayout)
 //        val drawerLayout: DrawerLayout = findViewById(R.id.drawerlayout)
@@ -178,33 +171,5 @@ class HomeActivity : AppCompatActivity(), FirebaseLoadContry {
 
     override fun onFirebaseLoadFailed(message: String) {
         TODO("Not yet implemented")
-    }
-
-    private fun getRideData() {
-
-        databaseReference = FirebaseDatabase.getInstance().getReference("Buleia")
-
-        databaseReference.addValueEventListener(object : ValueEventListener {
-
-            override fun onDataChange(snapshot: DataSnapshot) {
-
-                if(snapshot.exists()){
-                    for(rideSnapshot in snapshot.children){
-
-                        val ride = rideSnapshot.getValue(Ride::class.java)
-                        rideArrayList.add(ride!!)
-
-                    }
-
-                    rideRecyclerview.adapter = MyAdapter(rideArrayList)
-                }
-
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
-            }
-
-        })
     }
 }
