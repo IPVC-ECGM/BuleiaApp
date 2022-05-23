@@ -1,130 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardElevation="8dp"
-    app:cardCornerRadius="8dp"
-    >
-
-
+    android:background="@color/black"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="3dp"
+    app:cardUseCompatPadding="true"
+    android:backgroundTint="@color/icons">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/my_custom_background"
+        android:id="@+id/rowLineas"
         android:orientation="vertical"
-        android:paddingLeft="30dp"
-        android:paddingTop="20dp"
-        android:paddingBottom="20dp"
-        >
+        android:padding="10dp">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/rideDay"
-                android:textColor="@color/primary_text"
-                android:textSize="25dp"
-                android:layout_marginLeft="50dp"
-                android:textStyle="bold"/>
+                android:id="@+id/destinatioTo"
+                android:text="Destination"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                android:padding="16dp"
+                android:layout_weight="1"/>
 
             <TextView
-                android:id="@+id/tvDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="array"
-                android:textColor="@color/primary_text"
-                android:textSize="20dp"/>
-
+                android:id="@+id/dateTo"
+                android:text="Date"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                android:padding="16dp"
+                android:layout_weight="1"/>
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:orientation="horizontal">
+            android:id="@+id/expandableTo"
+            android:visibility="visible">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/rideTime"
+                android:id="@+id/timeTo"
+                android:text="Time"
                 android:textColor="@color/primary_text"
-                android:layout_marginLeft="50dp"
-                android:textSize="25dp"
+                android:textSize="18sp"
+                android:padding="16dp"
                 android:textStyle="bold"/>
 
             <TextView
-                android:id="@+id/tvTime"
+                android:id="@+id/startTo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="array"
+                android:layout_below="@+id/timeTo"
+                android:padding="16dp"
+                android:text="Start At"
                 android:textColor="@color/primary_text"
-                android:textSize="20dp"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:orientation="horizontal">
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/rideFrom"
+                android:id="@+id/endTo"
+                android:text="End At"
                 android:textColor="@color/primary_text"
-                android:layout_marginLeft="50dp"
-                android:textSize="25dp"
-                android:textStyle="bold"/>
+                android:textSize="18sp"
+                android:padding="16dp"
+                android:textStyle="bold"
+                android:layout_below="@+id/startTo"/>
 
-            <TextView
-                android:id="@+id/tvDriveFrom"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/endTo"
+                android:id="@+id/vizigolosTo"
+                android:layout_margin="10dp"
+                android:layout_centerHorizontal="true"
+                android:textAlignment="center"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/vizigolo1"
+                    android:text="NOME"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/vizigolo2"
+                    android:text="NOME"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/vizigolo3"
+                    android:text="NOME"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+
+            <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="array"
+                android:layout_centerHorizontal="true"
+                android:backgroundTint="@color/black"
+                android:id="@+id/reviewTo"
+                android:text="Review"
+                android:layout_marginTop="20sp"
                 android:textColor="@color/primary_text"
-                android:textSize="20dp"/>
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:layout_below="@+id/vizigolosTo"/>
+        </RelativeLayout>
 
-        </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/rideTo"
-                android:textColor="@color/primary_text"
-                android:layout_marginLeft="50dp"
-                android:textSize="25dp"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:id="@+id/tvDriveTo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="array"
-                android:textColor="@color/primary_text"
-                android:textSize="20dp"/>
-
-        </LinearLayout>
     </LinearLayout>
-</RelativeLayout>
+
+</androidx.cardview.widget.CardView>

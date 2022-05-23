@@ -9,5 +9,6 @@ data class Ride(
                 var pick1 : String ?= null,
                 var pick2 : String ?= null,
                 var pick3 : String ?= null,
-                var id : Int ?= null
+                var id : Int ?= null,
+                var expandableLayout: Boolean = false
                 )
