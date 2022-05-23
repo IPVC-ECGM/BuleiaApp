@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".activity.HistoryActivity">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -40,7 +41,18 @@
                     style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"/>
             </LinearLayout>
         </androidx.appcompat.widget.Toolbar>
-
     </com.google.android.material.appbar.AppBarLayout>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rideList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/ride_item">
+
+        </androidx.recyclerview.widget.RecyclerView>
+    </RelativeLayout>
 </LinearLayout>

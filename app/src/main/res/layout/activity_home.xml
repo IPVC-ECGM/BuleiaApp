@@ -26,13 +26,8 @@
                 </com.google.android.material.floatingactionbutton.FloatingActionButton>
 
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rideList"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    tools:listitem="@layout/ride_item">
 
-                </androidx.recyclerview.widget.RecyclerView>
+
 
 
         </RelativeLayout>
