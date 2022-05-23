@@ -1,7 +1,6 @@
 package ecgm.app.buleia.model
 
 data class Buleia(
-    val id: Int,
     val rideDay: String,
     val rideTime: String,
     val driveFrom: String,
