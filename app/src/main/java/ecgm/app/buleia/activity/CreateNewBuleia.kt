@@ -34,6 +34,7 @@ class CreateNewBuleia : AppCompatActivity() {
         val database = Firebase.database
         val myRef = database.getReference("Buleia")
 
+
         dbref = FirebaseDatabase.getInstance().getReference("Users")
         databaseQuery = myRef.orderByKey().limitToLast(1)
         firebaseAuth = FirebaseAuth.getInstance()
