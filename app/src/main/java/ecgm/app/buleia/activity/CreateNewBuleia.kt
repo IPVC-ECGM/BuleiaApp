@@ -40,6 +40,7 @@ class CreateNewBuleia : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
 
 
+
         dbref.addValueEventListener(object : ValueEventListener {
 
             override fun onDataChange(snapshot: DataSnapshot) {
