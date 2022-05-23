@@ -21,9 +21,9 @@ class MyAdapter(private val rideList : ArrayList<Ride>) : RecyclerView.Adapter<M
         val currentitem = rideList[position]
 
         holder.date.text = currentitem.rideDay
-        holder.drop.text = currentitem.rideTime
-        holder.pick1.text = currentitem.driveFrom
-        holder.pick2.text = currentitem.driveTo
+        holder.time.text = currentitem.rideTime
+        holder.driveFrom.text = currentitem.driveFrom
+        holder.driveTo.text = currentitem.driveTo
 
     }
 
@@ -34,13 +34,10 @@ class MyAdapter(private val rideList : ArrayList<Ride>) : RecyclerView.Adapter<M
 
     class MyViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
 
-
-        val date : TextView = itemView.findViewById(R.id.tvData)
-        val drop : TextView = itemView.findViewById(R.id.tvDrop)
-        val name : TextView = itemView.findViewById(R.id.tvNome)
-        val pick1 : TextView = itemView.findViewById(R.id.tvPick1)
-        val pick2 : TextView = itemView.findViewById(R.id.tvPick2)
-
+        val date : TextView = itemView.findViewById(R.id.tvDate)
+        val time : TextView = itemView.findViewById(R.id.tvTime)
+        val driveFrom : TextView = itemView.findViewById(R.id.tvDriveFrom)
+        val driveTo : TextView = itemView.findViewById(R.id.tvDriveTo)
 
     }
 }

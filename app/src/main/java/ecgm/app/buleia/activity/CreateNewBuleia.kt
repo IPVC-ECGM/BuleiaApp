@@ -57,7 +57,7 @@ class CreateNewBuleia : AppCompatActivity() {
 
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
-
+                    var  BuleiaId = 0
                     for (userSnapshot in snapshot.children) {
                         val user = userSnapshot.getValue(User::class.java)
                         if (user?.userId == firebaseAuth.currentUser?.uid) {
