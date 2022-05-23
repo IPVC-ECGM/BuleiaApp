@@ -49,8 +49,7 @@ class SettingsActivity : AppCompatActivity() {
 
         firebaseUser = FirebaseAuth.getInstance().currentUser!!
 
-        databaseReference =
-            FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.uid)
+        databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.uid)
 
         storage = FirebaseStorage.getInstance()
         storageRef = storage.reference
@@ -71,6 +70,43 @@ class SettingsActivity : AppCompatActivity() {
                 }
             }
         })
+
+        UpDescription.setOnClickListener() {
+                val userId: String = firebaseUser!!.uid
+                val hashMap: HashMap<String, String> = HashMap()
+
+                databaseReference = FirebaseDatabase.getInstance().getReference("Driver").child(userId)
+
+                hashMap.put("desProfile", EditStatus.text.toString())
+                databaseReference.updateChildren(hashMap as Map<String, Any>)
+                Toast.makeText(applicationContext, "Changes Success", Toast.LENGTH_SHORT).show()
+            UpDescription.visibility = View.GONE
+        }
+
+        UpCarPlate.setOnClickListener {
+                val userId: String = firebaseUser!!.uid
+                val hashMap: HashMap<String, String> = HashMap()
+
+                databaseReference = FirebaseDatabase.getInstance().getReference("Driver").child(userId)
+
+                hashMap.put("matriculaCarro", EditPlates.text.toString())
+                databaseReference.updateChildren(hashMap as Map<String, Any>)
+                Toast.makeText(applicationContext, "Changes Success", Toast.LENGTH_SHORT).show()
+            UpCarPlate.visibility = View.GONE
+        }
+
+
+        EditStatus.setOnClickListener {
+            UpDescription.visibility = View.VISIBLE
+            UpDescription.visibility = View.VISIBLE
+
+        }
+
+
+        EditPlates.setOnClickListener {
+            UpCarPlate.visibility = View.VISIBLE
+            UpCarPlate.visibility = View.VISIBLE
+        }
 
         userImage.setOnClickListener {
             chooseImage()
