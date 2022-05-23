@@ -28,7 +28,6 @@ class MyAdapter(private val rideList : ArrayList<Ride>) : RecyclerView.Adapter<M
     }
 
     override fun getItemCount(): Int {
-
         return rideList.size
     }
 
