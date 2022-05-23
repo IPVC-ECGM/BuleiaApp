@@ -22,7 +22,7 @@ class DriverActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_drivers)
+        setContentView(R.layout.activity_driver)
         supportActionBar?.hide()
 
         driverRecyclerview = findViewById(R.id.DriverRecyclerView)
