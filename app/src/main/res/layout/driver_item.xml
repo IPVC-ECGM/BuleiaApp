@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/black"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="3dp"
+    app:cardUseCompatPadding="true"
+    android:backgroundTint="@color/icons">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rowLineas2"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:id="@+id/dropdown22"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/destinatioTo221"
+                android:text="Destination"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                android:padding="16dp"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/nameTo2"
+                android:textStyle="bold"
+                android:text="Name"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                android:padding="16dp"
+                android:layout_weight="1"/>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/expandableTo2"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/number1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/timeTo"
+                    android:text="Time"
+                    android:layout_weight="1"
+                    android:textColor="@color/primary_text"
+                    android:textSize="18sp"
+                    android:padding="16dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/timeTo2"
+                    android:layout_weight="1"
+                    android:text="Time"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:padding="16dp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/number2"
+                android:layout_below="@+id/number1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/startTo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:text="Pickup"
+                    android:layout_weight="1"
+                    android:textColor="@color/primary_text"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/startTo2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:text="Pickup"
+                    android:layout_weight="1"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/number3"
+                android:layout_below="@+id/number2"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/seatsTo"
+                    android:text="Seats Avaiable"
+                    android:textColor="@color/primary_text"
+                    android:layout_weight="1"
+                    android:textSize="18sp"
+                    android:padding="16dp"
+                    android:textStyle="bold"
+                    android:layout_below="@+id/startTo"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/seatsTo2"
+                    android:text="Seats Avaiable"
+                    android:textColor="@color/black"
+                    android:layout_weight="1"
+                    android:textSize="18sp"
+                    android:padding="16dp"
+                    android:textStyle="bold"
+                    android:layout_below="@+id/startTo"/>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/rideTo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/number3"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20sp"
+                android:backgroundTint="@color/black"
+                android:text="Ride"
+                android:textColor="@color/primary_text"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

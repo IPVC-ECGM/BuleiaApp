@@ -14,11 +14,14 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import ecgm.app.buleia.R
 import ecgm.app.buleia.`interface`.FirebaseLoadContry
 import ecgm.app.buleia.model.Country
+import ecgm.app.buleia.model.DriverModel
+import ecgm.app.buleia.model.User
 import kotlinx.android.synthetic.main.activity_home.*
-import kotlinx.android.synthetic.main.item_bottom_sheet.view.*
 
 class HomeActivity : AppCompatActivity(), FirebaseLoadContry {
 
@@ -27,6 +30,8 @@ class HomeActivity : AppCompatActivity(), FirebaseLoadContry {
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var databaseReference: DatabaseReference
     private lateinit var firebaseLoadContry: FirebaseLoadContry
+    private lateinit var databaseRIDER: DatabaseReference
+    lateinit var button: ImageButton
 
 
 
@@ -37,11 +42,11 @@ class HomeActivity : AppCompatActivity(), FirebaseLoadContry {
         actionBar.title = "Home"
 
 
-
         val drawerLayout = findViewById<DrawerLayout>(R.id.drawerlayout)
 //        val drawerLayout: DrawerLayout = findViewById(R.id.drawerlayout)
         val menu1 = findViewById<NavigationView>(R.id.menu_1)
 //        val menu1 : NavigationView = findViewById(R.id.menu_1)
+
 
         toggle = ActionBarDrawerToggle(this,drawerLayout, R.string.open, R.string.close)
         drawerLayout.addDrawerListener(toggle)
@@ -100,7 +105,7 @@ class HomeActivity : AppCompatActivity(), FirebaseLoadContry {
 
         ButtonAdicionaBoleia.setOnClickListener {
             //Toast.makeText(this@HomeActivity, "FAB is clicked...", Toast.LENGTH_LONG).show()
-            val intent = Intent(this@HomeActivity, CreateNewBuleia::class.java)
+            val intent = Intent(this@HomeActivity, DriversActivity::class.java)
             startActivity(intent)
         }
 
@@ -111,16 +116,92 @@ class HomeActivity : AppCompatActivity(), FirebaseLoadContry {
     }
 
     private fun checkRider () {
+        var aument = 1
+        val firebaseUser = firebaseAuth.currentUser
+        val userId: String = firebaseUser!!.uid
+        databaseRIDER = FirebaseDatabase.getInstance().getReference("Users")
+        val database = Firebase.database
+        val riderREF = database.getReference("Driver")
 
         activateRide.isSelected = !activateRide.isSelected
-            if (spinner_to2.visibility == View.VISIBLE) {
-                rideTo.visibility = View.VISIBLE
-                spinner_to2.visibility = View.GONE
+            if (expandableTo22.visibility == View.VISIBLE) {
+                var driverStatus = 1
+
+                databaseRIDER.addValueEventListener(object : ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        if (snapshot.exists()) {
+                            for (userSnapshot in snapshot.children) {
+                                val user = userSnapshot.getValue(User::class.java)
+                                if (user?.userId == firebaseAuth.currentUser?.uid) {
+
+
+                                        var statusId = +1
+                                            statusId ++
+                                        var driverName = user?.userName
+                                        var numberBuleia = +1
+                                            numberBuleia ++
+                                            numberBuleia.toString().trim()
+                                        var driverWhere = findViewById<Spinner>(R.id.spinner_to22).selectedItem
+                                        var timeDriver = findViewById<EditText>(R.id.timeTo22).text.toString().trim()
+                                        var pickUpLocation = findViewById<Spinner>(R.id.startTo22).selectedItem
+                                        var numberSeats = findViewById<EditText>(R.id.seatsTo22).text.toString().trim()
+
+
+                                        val driverGO = DriverModel(
+                                            driverWhere.toString(),
+                                            timeDriver.toString(),
+                                            pickUpLocation.toString(),
+                                            numberSeats.toString(),
+                                            driverName.toString(),
+                                            numberBuleia.toString().trim(),
+                                            statusId.toString(),
+                                            driverStatus.toString()
+                                        )
+                                        riderREF.child(userId).setValue(driverGO)
+                                        driverON()
+                                        aument ++
+                                    serchForRide.visibility = View.VISIBLE
+                                    expandableTo22.visibility = View.GONE
+                                    }
+                                }
+                            }
+                        }
+                    override fun onCancelled(error: DatabaseError) {
+                    }
+                })
             }
-            else if (rideTo.visibility == View.VISIBLE) {
-                rideTo.visibility = View.GONE
-                spinner_to2.visibility = View.VISIBLE
+            else if (expandableTo22.visibility == View.GONE) {
+                var driverStatus = 0
+
+                databaseRIDER.addValueEventListener(object : ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        if (snapshot.exists()) {
+                            for (userSnapshot in snapshot.children) {
+                                val user = userSnapshot.getValue(User::class.java)
+                                if (user?.userId == firebaseAuth.currentUser?.uid) {
+
+                                        var hashMap: HashMap<String, Int> = HashMap()
+                                        hashMap.put("driverStatus", driverStatus)
+                                        riderREF.child(userId).setValue(hashMap)
+                                        driverOFF()
+                                        expandableTo22.visibility = View.VISIBLE
+                                        serchForRide.visibility = View.GONE
+                                    }
+                                }
+                            }
+                        }
+                    override fun onCancelled(error: DatabaseError) {
+                    }
+                })
             }
+    }
+
+    fun driverON(){
+        Toast.makeText(this, "Driver Active", Toast.LENGTH_LONG).show()
+    }
+
+    fun driverOFF(){
+        Toast.makeText(this, "Driver OUT", Toast.LENGTH_LONG).show()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -172,7 +253,8 @@ class HomeActivity : AppCompatActivity(), FirebaseLoadContry {
         val adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, country_name)
         spinner_from.adapter = adapter
         spinner_to.adapter = adapter
-        spinner_to2.adapter = adapter
+        spinner_to22.adapter = adapter
+        startTo22.adapter = adapter
     }
 
     private fun getCoutryNameList(countryList: List<Country>): List<String> {

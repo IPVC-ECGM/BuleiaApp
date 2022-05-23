@@ -1,4 +1,5 @@
 package ecgm.app.buleia.model
+
 import android.widget.EditText
 import java.sql.Time
 

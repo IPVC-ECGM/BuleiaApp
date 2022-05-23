@@ -63,10 +63,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:background="@color/icons"
             android:orientation="vertical"
             android:padding="30dp">
 
-            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/userImage"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
@@ -79,11 +81,12 @@
 
             <EditText
                 android:id="@+id/etUserName"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:maxLines="1"
-                android:background="@color/primary_text"
+                android:textColor="@color/primary_text"
+                android:background="@color/black"
                 android:textAlignment="center"
                 android:textSize="20sp"
                 tools:text="@string/username" />
@@ -105,9 +108,9 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
                 android:layout_marginEnd="2dp"
-                android:background="@color/primary_dark"
+                android:background="@color/primary_text"
                 android:text="@string/btn_name"
-                android:textColor="@color/primary_text"
+                android:textColor="@color/icons"
                 android:visibility="gone" />
 
             <ProgressBar
@@ -126,21 +129,64 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        >
-    <Switch
-        android:id="@+id/switch_Splash"
-        android:text="Disable SplashScreen"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:button="@null"
-        android:onClick="switch_button"
-        android:switchMinWidth="50dp"
-        android:textColor="@color/primary_dark"
-        android:textSize="20dp"
-        android:trackTint="@drawable/newtrack"
-        android:thumbTint="@drawable/newthumb"
+        android:layout_marginRight="10dp">
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switch_Splash"
+            android:text="Disable SplashScreen"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:button="@null"
+            android:onClick="switch_button"
+            android:switchMinWidth="50dp"
+            android:textColor="@color/primary_dark"
+            android:textSize="20sp"
+            android:trackTint="@drawable/newtrack"
+            android:thumbTint="@drawable/newthumb"
+        />
+    </LinearLayout>
 
-    />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/black"
+        android:layout_margin="30dp">
+
+        <EditText
+            android:id="@+id/EditStatus"
+            android:textColor="@color/primary_text"
+            android:textColorHint="@color/primary_text"
+            android:gravity="center"
+            android:hint="Edit Your Profile Description"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"/>
+
+        <Button
+            android:id="@+id/UpDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:hint="Update"
+            android:visibility="gone"
+            android:backgroundTint="@color/icons"/>
+
+        <EditText
+            android:id="@+id/EditPlates"
+            android:hint="Edit You Car Plate"
+            android:textColor="@color/primary_text"
+            android:textColorHint="@color/primary_text"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/UpCarPlate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:hint="Update"
+            android:visibility="gone"
+            android:backgroundTint="@color/icons"/>
+
     </LinearLayout>
 </LinearLayout>

@@ -44,4 +44,5 @@
     <string name="pickup_02">Pick up 2</string>
     <string name="pickup_03">Pick up 3</string>
     <string name="pickup_01">Pick up 1</string>
+    <string name="preference_file_key">Shared_Home</string>
 </resources>
