@@ -80,6 +80,12 @@ class HomeActivity : AppCompatActivity(), FirebaseLoadContry {
             }
             true
         }
+
+        ButtonAdicionaBoleia222.setOnClickListener {
+            val intent = Intent(this@HomeActivity, CreateNewBuleia::class.java)
+            startActivity(intent)
+        }
+
         //Init Interface Country
         firebaseLoadContry = this
 
@@ -103,11 +109,11 @@ class HomeActivity : AppCompatActivity(), FirebaseLoadContry {
         firebaseAuth = FirebaseAuth.getInstance()
         checkUser()
 
-        ButtonAdicionaBoleia.setOnClickListener {
-            //Toast.makeText(this@HomeActivity, "FAB is clicked...", Toast.LENGTH_LONG).show()
-            val intent = Intent(this@HomeActivity, DriversActivity::class.java)
-            startActivity(intent)
-        }
+//        ButtonAdicionaBoleia.setOnClickListener {
+//            //Toast.makeText(this@HomeActivity, "FAB is clicked...", Toast.LENGTH_LONG).show()
+//            val intent = Intent(this@HomeActivity, DriversActivity::class.java)
+//            startActivity(intent)
+//        }
 
         activateRide.setOnClickListener {
             checkRider()
@@ -148,20 +154,20 @@ class HomeActivity : AppCompatActivity(), FirebaseLoadContry {
 
 
                                         val driverGO = DriverModel(
-                                            driverWhere.toString(),
-                                            timeDriver.toString(),
-                                            pickUpLocation.toString(),
-                                            numberSeats.toString(),
-                                            driverName.toString(),
-                                            numberBuleia.toString().trim(),
-                                            statusId.toString(),
-                                            driverStatus.toString()
+                                            driverWhere?.toString(),
+                                            timeDriver?.toString(),
+                                            pickUpLocation?.toString(),
+                                            numberSeats?.toString(),
+                                            driverName?.toString(),
+                                            numberBuleia?.toString().trim(),
+                                            statusId?.toString(),
+                                            driverStatus?.toString()
                                         )
                                         riderREF.child(userId).setValue(driverGO)
                                         driverON()
                                         aument ++
-                                    serchForRide.visibility = View.VISIBLE
-                                    expandableTo22.visibility = View.GONE
+//                                    serchForRide.visibility = View.VISIBLE
+//                                    expandableTo22.visibility = View.GONE
                                     }
                                 }
                             }
@@ -170,30 +176,30 @@ class HomeActivity : AppCompatActivity(), FirebaseLoadContry {
                     }
                 })
             }
-            else if (expandableTo22.visibility == View.GONE) {
-                var driverStatus = 0
-
-                databaseRIDER.addValueEventListener(object : ValueEventListener {
-                    override fun onDataChange(snapshot: DataSnapshot) {
-                        if (snapshot.exists()) {
-                            for (userSnapshot in snapshot.children) {
-                                val user = userSnapshot.getValue(User::class.java)
-                                if (user?.userId == firebaseAuth.currentUser?.uid) {
-
-                                        var hashMap: HashMap<String, Int> = HashMap()
-                                        hashMap.put("driverStatus", driverStatus)
-                                        riderREF.child(userId).setValue(hashMap)
-                                        driverOFF()
-                                        expandableTo22.visibility = View.VISIBLE
-                                        serchForRide.visibility = View.GONE
-                                    }
-                                }
-                            }
-                        }
-                    override fun onCancelled(error: DatabaseError) {
-                    }
-                })
-            }
+//            else if (expandableTo22.visibility == View.GONE) {
+//                var driverStatus = 0
+//
+//                databaseRIDER.addValueEventListener(object : ValueEventListener {
+//                    override fun onDataChange(snapshot: DataSnapshot) {
+//                        if (snapshot.exists()) {
+//                            for (userSnapshot in snapshot.children) {
+//                                val user = userSnapshot.getValue(User::class.java)
+//                                if (user?.userId == firebaseAuth.currentUser?.uid) {
+//
+//                                        var hashMap: HashMap<String, Int> = HashMap()
+//                                        hashMap.put("driverStatus", driverStatus)
+//                                        riderREF.child(userId).setValue(hashMap)
+//                                        driverOFF()
+//                                        expandableTo22.visibility = View.VISIBLE
+//                                        serchForRide.visibility = View.GONE
+//                                    }
+//                                }
+//                            }
+//                        }
+//                    override fun onCancelled(error: DatabaseError) {
+//                    }
+//                })
+//            }
     }
 
     fun driverON(){
@@ -251,8 +257,8 @@ class HomeActivity : AppCompatActivity(), FirebaseLoadContry {
         val country_name = getCoutryNameList(countryList)
         //Adapter
         val adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, country_name)
-        spinner_from.adapter = adapter
-        spinner_to.adapter = adapter
+//        spinner_from.adapter = adapter
+//        spinner_to.adapter = adapter
         spinner_to22.adapter = adapter
         startTo22.adapter = adapter
     }
