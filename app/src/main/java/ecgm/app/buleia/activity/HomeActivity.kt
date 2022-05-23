@@ -25,6 +25,7 @@ import java.lang.ref.Reference
 import java.util.ArrayList
 
 class HomeActivity : AppCompatActivity(), FirebaseLoadContry {
+
     private lateinit var toggle: ActionBarDrawerToggle
     private lateinit var actionBar: ActionBar
     private lateinit var firebaseAuth: FirebaseAuth

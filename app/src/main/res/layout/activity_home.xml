@@ -30,8 +30,9 @@
                     android:id="@+id/rideList"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    tools:listitem="@layout/ride_item">
-
+                    tools:listitem="@layout/ride_item"
+                    android:background="@color/secondary_text"
+                    >
                 </androidx.recyclerview.widget.RecyclerView>
 
 
@@ -45,6 +46,7 @@
             app:headerLayout="@layout/menu_main"
             app:menu="@menu/menu"
             android:layout_gravity="start"
-            android:fitsSystemWindows="true"/>
+            android:fitsSystemWindows="true">
+        </com.google.android.material.navigation.NavigationView>
 
-</androidx.drawerlayout.widget.DrawerLayout>
+        </androidx.drawerlayout.widget.DrawerLayout>
