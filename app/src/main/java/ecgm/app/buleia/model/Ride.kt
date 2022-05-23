@@ -1,4 +1,4 @@
-package ecgm.app.buleia.activity
+package ecgm.app.buleia.model
 
 data class Ride(
                 var rideDay : String ?= null,

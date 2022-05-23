@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.*
 import ecgm.app.buleia.R
+import ecgm.app.buleia.adapter.MyAdapter
+import ecgm.app.buleia.model.Ride
 import java.util.ArrayList
 
 class HistoryActivity : AppCompatActivity() {
