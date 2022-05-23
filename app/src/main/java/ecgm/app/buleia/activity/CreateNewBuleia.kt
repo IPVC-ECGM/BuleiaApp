@@ -43,7 +43,7 @@ class CreateNewBuleia : AppCompatActivity() {
                         val user = userSnapshot.getValue(User::class.java)
                         if (user?.userId == firebaseAuth.currentUser?.uid) {
                             var user = user?.userName
-                            button = findViewById(R.id.ButtonAdicionaBoleia)
+                            button = findViewById(R.id.ButtonAdicionaBoleia2)
                             button.setOnClickListener {
 
                                 var rideDay = findViewById<EditText>(R.id.rideDay).text

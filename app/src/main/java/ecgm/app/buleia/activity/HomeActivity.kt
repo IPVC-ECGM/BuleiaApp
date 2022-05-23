@@ -99,8 +99,7 @@ class HomeActivity : AppCompatActivity(), FirebaseLoadContry {
         firebaseAuth = FirebaseAuth.getInstance()
         checkUser()
 
-        val mFab = findViewById<FloatingActionButton>(R.id.ButtonAdicionaBoleia)
-        mFab.setOnClickListener {
+        ButtonAdicionaBoleia.setOnClickListener {
             //Toast.makeText(this@HomeActivity, "FAB is clicked...", Toast.LENGTH_LONG).show()
             val intent = Intent(this@HomeActivity, CreateNewBuleia::class.java)
             startActivity(intent)
