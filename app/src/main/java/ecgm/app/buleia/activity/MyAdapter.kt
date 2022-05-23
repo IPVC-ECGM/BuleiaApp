@@ -20,29 +20,23 @@ class MyAdapter(private val rideList : ArrayList<Ride>) : RecyclerView.Adapter<M
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentitem = rideList[position]
 
-        holder.date.text = currentitem.date
-        holder.drop.text = currentitem.drop
-        holder.name.text = currentitem.name
-        holder.pick1.text = currentitem.pick
-        holder.pick2.text = currentitem.pickA
-        holder.pick3.text = currentitem.pickB
+        holder.date.text = currentitem.rideDay
+        holder.time.text = currentitem.rideTime
+        holder.driveFrom.text = currentitem.driveFrom
+        holder.driveTo.text = currentitem.driveTo
 
     }
 
     override fun getItemCount(): Int {
-
         return rideList.size
     }
 
     class MyViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
 
-
-        val date : TextView = itemView.findViewById(R.id.tvData)
-        val drop : TextView = itemView.findViewById(R.id.tvDrop)
-        val name : TextView = itemView.findViewById(R.id.tvNome)
-        val pick1 : TextView = itemView.findViewById(R.id.tvPick1)
-        val pick2 : TextView = itemView.findViewById(R.id.tvPick2)
-        val pick3 : TextView = itemView.findViewById(R.id.tvPick3)
+        val date : TextView = itemView.findViewById(R.id.tvDate)
+        val time : TextView = itemView.findViewById(R.id.tvTime)
+        val driveFrom : TextView = itemView.findViewById(R.id.tvDriveFrom)
+        val driveTo : TextView = itemView.findViewById(R.id.tvDriveTo)
 
     }
 }

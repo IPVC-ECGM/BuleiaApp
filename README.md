@@ -22,12 +22,12 @@ Nesta aplicação é possível anunciar uma viagem para que outros utilizadores 
 
 ## Grupo 6
 
-* Carlos Filipe marques Cruz 🙃           | 20016 | carloscz@ipvc.pt  
-* Diogo Alexandre Pinto Mateus 🤪         | 20417 | diogomateus@ipvc.pt
-* Gaspar Vilas Espinheira 🥳              | 23761 | gaspare@ipvc.pt  
-* Joaquim Alfredo Rodrigues Pereira 😎    | 21428 | joaquimpereira@ipvc.pt 
-* Kelly Ribeiro Araujo 😏                 | 20025 | kellyaraujo@ipvc.pt  
-* Suila Silva de Oliveira 😶              | 23156 | suilaoliveira@ipvc.pt 
+* Carlos Filipe marques Cruz 🙃            | 20016 | carloscz@ipvc.pt  
+* Diogo Alexandre Pinto Mateus 🤪          | 20417 | diogomateus@ipvc.pt
+* Gaspar Vilas Espinheira 🥳               | 23761 | gaspare@ipvc.pt  
+* Joaquim Alfredo Rodrigues Pereira 😎     | 21428 | joaquimpereira@ipvc.pt 
+* Kelly Ribeiro Araujo 😏                  | 20025 | kellyaraujo@ipvc.pt  
+* Suila Silva de Oliveira 😶               | 23156 | suilaoliveira@ipvc.pt 
 
 ## Intituição
 

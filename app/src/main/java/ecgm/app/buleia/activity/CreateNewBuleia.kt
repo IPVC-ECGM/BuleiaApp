@@ -1,12 +1,14 @@
 package ecgm.app.buleia.activity
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.FirebaseError
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
@@ -15,12 +17,14 @@ import ecgm.app.buleia.R
 import ecgm.app.buleia.model.Buleia
 import ecgm.app.buleia.model.User
 
+
 class CreateNewBuleia : AppCompatActivity() {
     lateinit var button: Button
     private lateinit var dbref : DatabaseReference
 
     //Firebase autenticação
     private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var databaseQuery: Query
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,16 +33,32 @@ class CreateNewBuleia : AppCompatActivity() {
 
         val database = Firebase.database
         val myRef = database.getReference("Buleia")
-        var id = 2
+
 
         dbref = FirebaseDatabase.getInstance().getReference("Users")
+        databaseQuery = myRef.orderByKey().limitToLast(1)
         firebaseAuth = FirebaseAuth.getInstance()
+
+
+    /*  databaseQuery.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+              var BuleiaId = 0
+                for (snapshot in snapshot.children){
+                    var viagem = snapshot.getValue(Buleia::class.java)
+                    BuleiaId = viagem?.id!!
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+        })*/
 
         dbref.addValueEventListener(object : ValueEventListener {
 
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
-
+                    var  BuleiaId = 4
                     for (userSnapshot in snapshot.children) {
                         val user = userSnapshot.getValue(User::class.java)
                         if (user?.userId == firebaseAuth.currentUser?.uid) {
@@ -46,6 +66,8 @@ class CreateNewBuleia : AppCompatActivity() {
                             button = findViewById(R.id.ButtonAdicionaBoleia2)
                             button.setOnClickListener {
 
+
+                                var id = BuleiaId+1
                                 var rideDay = findViewById<EditText>(R.id.rideDay).text
                                 var rideTime = findViewById<EditText>(R.id.rideTime).text
                                 var driveFrom = findViewById<EditText>(R.id.driveFrom).text
@@ -58,6 +80,7 @@ class CreateNewBuleia : AppCompatActivity() {
                                 val user_id = sharedPref.getString("user_id", "anonimo")*/
                                 //var user = FirebaseAuth.getInstance().currentUser?.uid
                                 val buleia = Buleia(
+                                    id,
                                     rideDay.toString(),
                                     rideTime.toString(),
                                     driveFrom.toString(),
@@ -68,11 +91,8 @@ class CreateNewBuleia : AppCompatActivity() {
                                     user.toString()
                                 )
                                 myRef.child(id.toString()).setValue(buleia)
-                                id++
-
                                 buleiaCreated()
                                 // myRef.setValue(buleia)
-
                             }
                         }
                     }
@@ -93,6 +113,20 @@ class CreateNewBuleia : AppCompatActivity() {
 
     fun getId(){
 
+        databaseQuery.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                var BuleiaId = 0
+                for (snapshot in snapshot.children){
+                    var viagem = snapshot.getValue(Buleia::class.java)
+                    BuleiaId = viagem?.id!!
+                    Log.d("teste", BuleiaId.toString())
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+        })
     }
 
     fun buleiaCreated(){
@@ -101,5 +135,7 @@ class CreateNewBuleia : AppCompatActivity() {
         startActivity(intent)
         finish()
     }
+
+
 }
 
